@@ -91,7 +91,7 @@ class HalLinksTest extends TestCase
         $event->setRouter($router);
         $router->setRequestUri(new Http('http://localhost.localdomain/resource'));
 
-        $controller = $this->controller = $this->getMock('PhlyRestfully\ResourceController');
+        $controller = $this->controller = $this->getMockBuilder('PhlyRestfully\ResourceController')->getMock();
         $controller->expects($this->any())
             ->method('getEvent')
             ->will($this->returnValue($event));

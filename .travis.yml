@@ -20,7 +20,6 @@ script:
   - (cd test ; ../vendor/bin/phpunit -c phpunit.xml --coverage-clover=../clover.xml)
 
 after_success:
-  - cd ..
   - bash <(curl -s https://codecov.io/bash) -f ./clover.xml
 
 fast_finish: true

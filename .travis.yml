@@ -1,16 +1,27 @@
 language: php
 
 php:
-  - "5.5"
-  - "5.6"
-  - "7.0"
+  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+  - nightly
 
 before_install:
- - wget http://cs.sensiolabs.org/get/php-cs-fixer.phar
+  - wget http://cs.sensiolabs.org/get/php-cs-fixer.phar
 
 before_script:
- - composer install --dev
+  - composer install --dev
+
+branches:
+  only:
+    master
 
 script:
- - (cd test ; ../vendor/bin/phpunit -c phpunit.xml)
- - output=$(php php-cs-fixer.phar fix -v --dry-run --level=psr2 .); if [[ $output ]]; then while read -r line; do echo -e "\e[00;31m$line\e[00m"; done <<< "$output"; false; fi;
+  - (cd test ; ../vendor/bin/phpunit -c phpunit.xml)
+  - output=$(php php-cs-fixer.phar fix -v --dry-run --level=psr2 .); if [[ $output ]]; then while read -r line; do echo -e "\e[00;31m$line\e[00m"; done <<< "$output"; false; fi;
+
+fast_finish: true
+
+allow_failures:
+  - php: nightly

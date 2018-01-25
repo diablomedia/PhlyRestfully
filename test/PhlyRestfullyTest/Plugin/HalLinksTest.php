@@ -543,8 +543,10 @@ class HalLinksTest extends TestCase
 
         $collection = $this->plugin->createCollectionFromMetadata(
             $set,
-            $metadata->get('PhlyRestfullyTest\Plugin\TestAsset\Collection'
-        ));
+            $metadata->get(
+                'PhlyRestfullyTest\Plugin\TestAsset\Collection'
+        )
+        );
         $this->assertInstanceof('PhlyRestfully\HalCollection', $collection);
         $links = $collection->getLinks();
         $this->assertTrue($links->has('describedby'));

@@ -8,15 +8,16 @@ php:
   - nightly
 
 before_script:
-  - composer install --dev
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source
 
 branches:
   only:
     master
 
 script:
-  - (cd test ; ../vendor/bin/phpunit -c phpunit.xml)
   - php -n -d memory_limit=768M ./vendor/bin/php-cs-fixer fix --dry-run -vv --rules=@PSR2 .
+  - (cd test ; ../vendor/bin/phpunit -c phpunit.xml)
 
 fast_finish: true
 

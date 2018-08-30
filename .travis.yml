@@ -33,8 +33,9 @@ jobs:
     - php: nightly
   include:
     - php: 5.6
-      env: COMPOSER_ARGS="--prefer-lowest"
+      env: COMPOSER_ARGS="--ignore-platform-reqs --prefer-lowest"
     - php: 5.6
+      env: COMPOSER_ARGS="--ignore-platform-reqs"
     - php: 7
       env: COMPOSER_ARGS="--prefer-lowest"
     - php: 7

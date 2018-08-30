@@ -18,7 +18,7 @@ stages:
   - test with coverage
 
 install:
-  - travis_retry composer install --no-interaction --prefer-stable $COMPOSER_ARGS
+  - travis_retry composer update --no-interaction --prefer-stable $COMPOSER_ARGS
 
 branches:
   only:

@@ -529,9 +529,9 @@ class ResourceControllerTest extends TestCase
     public function testPassingIdentifierToConstructorAllowsListeningOnThatIdentifier()
     {
         $controller   = new ResourceController('MyNamespace\Controller\Foo');
-        $events       = new EventManager();
         $sharedEvents = new SharedEventManager();
-        $events->setSharedManager($sharedEvents);
+        $events       = new EventManager($sharedEvents);
+
         $controller->setEventManager($events);
 
         $test = new stdClass;

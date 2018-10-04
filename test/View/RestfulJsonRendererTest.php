@@ -23,7 +23,7 @@ use Zend\Mvc\Router\Http\Segment;
 use Zend\Mvc\Router\Http\TreeRouteStack;
 use Zend\Paginator\Adapter\ArrayAdapter;
 use Zend\Paginator\Paginator;
-use Zend\Stdlib\Hydrator;
+use Zend\Hydrator;
 use Zend\View\HelperPluginManager;
 use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;

@@ -139,7 +139,7 @@ class CollectionIntegrationTest extends TestCase
 
         $resource = new Resource();
         $events   = $resource->getEventManager();
-        $events->attach($this->listeners);
+        $this->listeners->attach($events);
 
         $controller = $this->controller = new ResourceController('Api\ResourceController');
         $controller->setResource($resource);

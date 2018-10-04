@@ -115,7 +115,7 @@ class ResourceControllerFactory implements AbstractFactoryInterface
 
         /** @var \Zend\EventManager\EventManager $events */
         $events = $services->get('EventManager');
-        $events->attach($listener);
+        $listener->attach($events);
         $events->setIdentifiers($resourceIdentifiers);
 
         $resource = new Resource();

@@ -32,7 +32,7 @@
         "zendframework/zend-paginator": "^2.5.0",
         "zendframework/zend-uri": "^2.5.0",
         "zendframework/zend-view": "^2.7.0",
-        "zendframework/zend-stdlib": "^3.0",
+        "zendframework/zend-stdlib": "^3.2.1",
         "zendframework/zend-hydrator": "^1.1"
     },
     "require-dev": {

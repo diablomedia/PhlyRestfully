@@ -263,7 +263,7 @@ class Module
                 $eventManager = $e->getApplication()->getEventManager();
                 /** @var Listener\ApiProblemListener $apiProblemListener */
                 $apiProblemListener = $services->get(Listener\ApiProblemListener::class);
-                $eventManager->attach($apiProblemListener);
+                $apiProblemListener->attach($eventManager);
             },
             300
         );
@@ -299,6 +299,6 @@ class Module
 
         // register at high priority, to "beat" normal json strategy registered
         // via view manager
-        $events->attach($restfulJsonStrategy, 200);
+        $restfulJsonStrategy->attach($events, 200);
     }
 }

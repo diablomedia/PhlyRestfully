@@ -17,12 +17,12 @@ use Zend\Mvc\MvcEvent;
 class ResourceParametersListener implements ListenerAggregateInterface
 {
     /**
-     * @var \Zend\Stdlib\CallbackHandler[]
+     * @var callable[]
      */
     protected $listeners = [];
 
     /**
-     * @var \Zend\Stdlib\CallbackHandler[]
+     * @var callable[]
      */
     protected $sharedListeners = [];
 
@@ -41,9 +41,8 @@ class ResourceParametersListener implements ListenerAggregateInterface
     public function detach(EventManagerInterface $events)
     {
         foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
+            $events->detach($listener);
+            unset($this->listeners[$index]);
         }
     }
 
@@ -67,14 +66,14 @@ class ResourceParametersListener implements ListenerAggregateInterface
         // Vary detachment based on zend-eventmanager version.
         $detach = method_exists($events, 'attachAggregate')
             ? /**
-             * @param \Zend\Stdlib\CallbackHandler $listener
+             * @param callable $listener
              * @return bool
              */
             function ($listener) use ($events) {
                 return $events->detach(ResourceController::class, $listener);
             }
         : /**
-         * @param \Zend\Stdlib\CallbackHandler $listener
+         * @param callable $listener
          * @return bool
          */
         function ($listener) use ($events) {

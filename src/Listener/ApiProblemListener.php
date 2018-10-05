@@ -34,7 +34,7 @@ class ApiProblemListener implements ListenerAggregateInterface
     protected static $acceptFilter = 'application/hal+json,application/api-problem+json,application/json';
 
     /**
-     * @var \Zend\Stdlib\CallbackHandler[]
+     * @var callable[]
      */
     protected $listeners = [];
 
@@ -67,9 +67,8 @@ class ApiProblemListener implements ListenerAggregateInterface
     public function detach(EventManagerInterface $events)
     {
         foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
+            $events->detach($listener);
+            unset($this->listeners[$index]);
         }
     }
 

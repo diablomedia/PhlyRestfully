@@ -38,7 +38,7 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.10",
         "phpunit/PHPUnit": "^5.7.11 || ^6.0 || ^7.0",
-        "vimeo/psalm": "1.1.4",
+        "vimeo/psalm": "3.2.7",
         "zendframework/zend-console": "^2.5",
         "zendframework/zend-http": "^2.5",
         "zendframework/zend-navigation": "^2.5",

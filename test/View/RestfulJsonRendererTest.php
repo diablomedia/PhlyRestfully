@@ -262,8 +262,8 @@ class RestfulJsonRendererTest extends TestCase
         $this->assertObjectHasAttribute('_embedded', $test);
         $this->assertInstanceof('stdClass', $test->_embedded);
         $this->assertObjectHasAttribute('items', $test->_embedded);
-        $this->assertInternalType('array', $test->_embedded->items);
-        $this->assertEquals(100, count($test->_embedded->items));
+        $this->assertIsArray($test->_embedded->items);
+        $this->assertCount(100, $test->_embedded->items);
 
         foreach ($test->_embedded->items as $key => $item) {
             $id = $key + 1;
@@ -314,8 +314,8 @@ class RestfulJsonRendererTest extends TestCase
         $this->assertObjectHasAttribute('_embedded', $test);
         $this->assertInstanceof('stdClass', $test->_embedded);
         $this->assertObjectHasAttribute('items', $test->_embedded);
-        $this->assertInternalType('array', $test->_embedded->items);
-        $this->assertEquals(5, count($test->_embedded->items));
+        $this->assertIsArray($test->_embedded->items);
+        $this->assertCount(5, $test->_embedded->items);
 
         foreach ($test->_embedded->items as $key => $item) {
             $id = $key + 11;
@@ -651,8 +651,8 @@ class RestfulJsonRendererTest extends TestCase
         $this->assertObjectHasAttribute('_embedded', $test);
         $this->assertInstanceof('stdClass', $test->_embedded);
         $this->assertObjectHasAttribute('items', $test->_embedded);
-        $this->assertInternalType('array', $test->_embedded->items);
-        $this->assertEquals(100, count($test->_embedded->items));
+        $this->assertIsArray($test->_embedded->items);
+        $this->assertCount(100, $test->_embedded->items);
 
         foreach ($test->_embedded->items as $key => $item) {
             $id = $key + 1;

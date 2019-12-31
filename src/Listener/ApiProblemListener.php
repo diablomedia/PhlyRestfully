@@ -55,6 +55,7 @@ class ApiProblemListener implements ListenerAggregateInterface
     /**
      * @param EventManagerInterface $events
      * @param int $priority
+     * @return void
      */
     public function attach(EventManagerInterface $events, $priority = 1)
     {
@@ -63,6 +64,7 @@ class ApiProblemListener implements ListenerAggregateInterface
 
     /**
      * @param EventManagerInterface $events
+     * @return void
      */
     public function detach(EventManagerInterface $events)
     {

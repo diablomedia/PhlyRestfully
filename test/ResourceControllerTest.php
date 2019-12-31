@@ -442,7 +442,8 @@ class ResourceControllerTest extends TestCase
     public function testOnDispatchRaisesDomainExceptionOnMissingResource()
     {
         $controller = new ResourceController();
-        $this->expectException(Exception\DomainException::class, 'ResourceInterface');
+        $this->expectException(Exception\DomainException::class);
+        $this->expectExceptionMessage('ResourceInterface');
         $controller->onDispatch($this->event);
     }
 
@@ -450,7 +451,8 @@ class ResourceControllerTest extends TestCase
     {
         $controller = new ResourceController();
         $controller->setResource($this->resource);
-        $this->expectException(Exception\DomainException::class, 'route');
+        $this->expectException(Exception\DomainException::class);
+        $this->expectExceptionMessage('route');
         $controller->onDispatch($this->event);
     }
 
@@ -1027,10 +1029,11 @@ class ResourceControllerTest extends TestCase
     }
 
     /**
-     * @expectedException \PhlyRestfully\Exception\DomainException
      */
     public function testGetResourceThrowsExceptionOnMissingResource()
     {
+        $this->expectException(\PhlyRestfully\Exception\DomainException::class);
+
         $controller = new ResourceController();
         $controller->getResource();
     }

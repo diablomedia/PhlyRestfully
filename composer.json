@@ -36,13 +36,14 @@
         "zendframework/zend-hydrator": "^1.1"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.10",
-        "phpunit/PHPUnit": "^5.7.11 || ^6.0 || ^7.0",
-        "vimeo/psalm": "1.1.4",
+        "friendsofphp/php-cs-fixer": "2.16.1",
+        "phpunit/phpunit": "^7.0",
+        "vimeo/psalm": "3.8.1",
         "zendframework/zend-console": "^2.5",
         "zendframework/zend-http": "^2.5",
         "zendframework/zend-navigation": "^2.5",
-        "zendframework/zend-servicemanager": "^2.5"
+        "zendframework/zend-servicemanager": "^2.5",
+        "phpstan/phpstan": "0.12.3"
     },
     "suggest": {
         "zfr/zfr-cors": "zfr/zfr-cors provides CORS support"
@@ -56,5 +57,9 @@
         "psr-4": {
             "PhlyRestfullyTest\\": "test/"
         }
+    },
+    "scripts": {
+        "phpstan": "phpstan analyse -c phpstan.neon --memory-limit=768M --no-progress --ansi",
+        "psalm": "psalm --show-info=false"
     }
 }

@@ -121,7 +121,7 @@ class ModuleTest extends TestCase
 
         $hydrators   = $plugin->getHydratorManager();
 
-        $this->assertInternalType('array', $hydratorMap);
+        $this->assertIsArray($hydratorMap);
 
         foreach ($options['phlyrestfully']['renderer']['hydrators'] as $class => $serviceName) {
             $key = strtolower($class);

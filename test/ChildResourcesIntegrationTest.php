@@ -236,7 +236,7 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $this->assertObjectHasAttribute('_embedded', $test);
         $this->assertObjectHasAttribute('child', $test->_embedded);
-        $this->assertInternalType('array', $test->_embedded->child);
+        $this->assertIsArray($test->_embedded->child);
 
         foreach ($test->_embedded->child as $child) {
             $this->assertObjectHasAttribute('_links', $child);
@@ -336,7 +336,7 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $this->assertObjectHasAttribute('_embedded', $test);
         $this->assertObjectHasAttribute('child', $test->_embedded);
-        $this->assertInternalType('array', $test->_embedded->child);
+        $this->assertIsArray($test->_embedded->child);
 
         foreach ($test->_embedded->child as $child) {
             $this->assertObjectHasAttribute('_links', $child);
@@ -447,7 +447,7 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $this->assertObjectHasAttribute('_embedded', $test);
         $this->assertObjectHasAttribute('children', $test->_embedded);
-        $this->assertInternalType('array', $test->_embedded->children);
+        $this->assertIsArray($test->_embedded->children);
 
         foreach ($test->_embedded->children as $child) {
             $this->assertObjectHasAttribute('_links', $child);

@@ -10,8 +10,8 @@ namespace PhlyRestfullyTest;
 
 use PhlyRestfully\ResourceEvent;
 use PHPUnit\Framework\TestCase as TestCase;
-use Zend\Mvc\Router\RouteMatch;
-use Zend\Stdlib\Parameters;
+use Laminas\Mvc\Router\RouteMatch;
+use Laminas\Stdlib\Parameters;
 
 class ResourceEventTest extends TestCase
 {

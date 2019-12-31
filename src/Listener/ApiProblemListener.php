@@ -10,11 +10,11 @@ namespace PhlyRestfully\Listener;
 
 use PhlyRestfully\ApiProblem;
 use PhlyRestfully\View\RestfulJsonModel;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\Http\Request as HttpRequest;
-use Zend\Mvc\MvcEvent;
-use Zend\View\Model\ModelInterface;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\EventManager\ListenerAggregateInterface;
+use Laminas\Http\Request as HttpRequest;
+use Laminas\Mvc\MvcEvent;
+use Laminas\View\Model\ModelInterface;
 
 /**
  * ApiProblemListener
@@ -94,14 +94,14 @@ class ApiProblemListener implements ListenerAggregateInterface
             return;
         }
 
-        /** @var \Zend\Http\Headers $headers */
+        /** @var \Laminas\Http\Headers $headers */
         $headers = $request->getHeaders();
         if (!$headers->has('Accept')) {
             return;
         }
 
         // ... that matches certain criteria
-        /** @var \Zend\Http\Header\AbstractAccept $accept */
+        /** @var \Laminas\Http\Header\AbstractAccept $accept */
         $accept = $headers->get('Accept');
         $match  = $accept->match(self::$acceptFilter);
         if (!$match || $match->getTypeString() == '*/*') {
@@ -116,7 +116,7 @@ class ApiProblemListener implements ListenerAggregateInterface
         }
 
         // Marshall the information we need for the API-Problem response
-        /** @var \Zend\Http\Response $response */
+        /** @var \Laminas\Http\Response $response */
         $response = $e->getResponse();
         $httpStatus       = $response->getStatusCode();
         $exception        = $model->getVariable('exception');

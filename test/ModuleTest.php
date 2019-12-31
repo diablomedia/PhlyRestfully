@@ -11,15 +11,15 @@ namespace PhlyRestfullyTest;
 use PhlyRestfully\Module;
 use PHPUnit\Framework\TestCase as TestCase;
 use ReflectionObject;
-use Zend\Hydrator;
-use Zend\Mvc\Application;
-use Zend\Mvc\MvcEvent;
-use Zend\Mvc\Router\RouteMatch;
-use Zend\Mvc\Router\RouteStackInterface;
-use Zend\Mvc\Service;
-use Zend\ServiceManager\Config;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\ArrayUtils;
+use Laminas\Hydrator;
+use Laminas\Mvc\Application;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Mvc\Router\RouteMatch;
+use Laminas\Mvc\Router\RouteStackInterface;
+use Laminas\Mvc\Service;
+use Laminas\ServiceManager\Config;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Stdlib\ArrayUtils;
 
 class ModuleTest extends TestCase
 {

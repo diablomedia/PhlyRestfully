@@ -12,10 +12,10 @@ use PhlyRestfully\Listener\ResourceParametersListener;
 use PhlyRestfully\Resource;
 use PhlyRestfully\ResourceController;
 use PHPUnit\Framework\TestCase as TestCase;
-use Zend\Http\PhpEnvironment\Request;
-use Zend\Mvc\MvcEvent;
-use Zend\Mvc\Router\RouteMatch;
-use Zend\Stdlib\Parameters;
+use Laminas\Http\PhpEnvironment\Request;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Mvc\Router\RouteMatch;
+use Laminas\Stdlib\Parameters;
 
 /**
  * @subpackage UnitTest
@@ -43,7 +43,7 @@ class ResourceParametersListenerTest extends TestCase
 
     public function testIgnoresNonResourceControllers()
     {
-        $controller = $this->getMockBuilder('Zend\Mvc\Controller\AbstractRestfulController')->getMock();
+        $controller = $this->getMockBuilder('Laminas\Mvc\Controller\AbstractRestfulController')->getMock();
         $this->event->setTarget($controller);
         $this->listener->onDispatch($this->event);
         $this->assertNull($this->resource->getRouteMatch());

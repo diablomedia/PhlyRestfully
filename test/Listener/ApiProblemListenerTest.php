@@ -10,9 +10,9 @@ namespace PhlyRestfullyTest\Listener;
 
 use PhlyRestfully\Listener\ApiProblemListener;
 use PHPUnit\Framework\TestCase as TestCase;
-use Zend\Console\Request as ConsoleRequest;
-use Zend\Console\Response as ConsoleResponse;
-use Zend\Mvc\MvcEvent;
+use Laminas\Console\Request as ConsoleRequest;
+use Laminas\Console\Response as ConsoleResponse;
+use Laminas\Mvc\MvcEvent;
 
 class ApiProblemListenerTest extends TestCase
 {

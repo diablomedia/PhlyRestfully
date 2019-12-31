@@ -15,17 +15,17 @@ use PhlyRestfully\MetadataMap;
 use PhlyRestfully\Plugin\HalLinks;
 use PhlyRestfully\ResourceController;
 use PHPUnit\Framework\TestCase as TestCase;
-use Zend\Http\Request;
-use Zend\Hydrator;
-use Zend\Hydrator\HydratorPluginManager;
-use Zend\Mvc\Router\Http\TreeRouteStack;
-use Zend\Mvc\Router\RouteMatch;
-use Zend\Mvc\Router\Http\Segment;
-use Zend\Mvc\MvcEvent;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Uri\Http;
-use Zend\View\Helper\Url as UrlHelper;
-use Zend\View\Helper\ServerUrl as ServerUrlHelper;
+use Laminas\Http\Request;
+use Laminas\Hydrator;
+use Laminas\Hydrator\HydratorPluginManager;
+use Laminas\Mvc\Router\Http\TreeRouteStack;
+use Laminas\Mvc\Router\RouteMatch;
+use Laminas\Mvc\Router\Http\Segment;
+use Laminas\Mvc\MvcEvent;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Uri\Http;
+use Laminas\View\Helper\Url as UrlHelper;
+use Laminas\View\Helper\ServerUrl as ServerUrlHelper;
 
 /**
  * @subpackage UnitTest

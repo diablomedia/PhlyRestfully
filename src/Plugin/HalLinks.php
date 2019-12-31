@@ -18,19 +18,19 @@ use PhlyRestfully\LinkCollection;
 use PhlyRestfully\LinkCollectionAwareInterface;
 use PhlyRestfully\Metadata;
 use PhlyRestfully\MetadataMap;
-use Zend\EventManager\Event;
-use Zend\EventManager\EventManager;
-use Zend\EventManager\EventManagerAwareInterface;
-use Zend\EventManager\EventManagerInterface;
-use Zend\Mvc\Controller\Plugin\PluginInterface as ControllerPluginInterface;
-use Zend\Paginator\Paginator;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Stdlib\DispatchableInterface;
-use Zend\Hydrator\HydratorInterface;
-use Zend\Hydrator\HydratorPluginManager;
-use Zend\View\Helper\AbstractHelper;
-use Zend\View\Helper\ServerUrl;
-use Zend\View\Helper\Url;
+use Laminas\EventManager\Event;
+use Laminas\EventManager\EventManager;
+use Laminas\EventManager\EventManagerAwareInterface;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\Mvc\Controller\Plugin\PluginInterface as ControllerPluginInterface;
+use Laminas\Paginator\Paginator;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Stdlib\DispatchableInterface;
+use Laminas\Hydrator\HydratorInterface;
+use Laminas\Hydrator\HydratorPluginManager;
+use Laminas\View\Helper\AbstractHelper;
+use Laminas\View\Helper\ServerUrl;
+use Laminas\View\Helper\Url;
 
 /**
  * Generate links for use with HAL payloads
@@ -144,7 +144,7 @@ class HalLinks extends AbstractHelper implements
         $events->attach(
             'getIdFromResource',
             /**
-             * @param \Zend\Mvc\MvcEvent $e
+             * @param \Laminas\Mvc\MvcEvent $e
              * @return mixed|false
              */
             function ($e) {
@@ -419,7 +419,7 @@ class HalLinks extends AbstractHelper implements
             $params['id'] = $id;
         }
 
-        /** @var \Zend\EventManager\EventManager $events */
+        /** @var \Laminas\EventManager\EventManager $events */
         $events      = $this->getEventManager();
         $eventParams = $events->prepareArgs([
             'route'    => $route,
@@ -914,7 +914,7 @@ class HalLinks extends AbstractHelper implements
         }
 
         $event = new Event(__FUNCTION__, $this, $params);
-        /** @var \Zend\EventManager\EventManager $em */
+        /** @var \Laminas\EventManager\EventManager $em */
         $em = $this->getEventManager();
         $results = $em->triggerEventUntil(
             /**

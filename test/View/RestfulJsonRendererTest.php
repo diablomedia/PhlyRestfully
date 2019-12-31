@@ -19,16 +19,16 @@ use PhlyRestfully\View\RestfulJsonRenderer;
 use PhlyRestfullyTest\TestAsset;
 use PHPUnit\Framework\TestCase as TestCase;
 use ReflectionObject;
-use Zend\Hydrator\HydratorPluginManager;
-use Zend\Mvc\Router\Http\Segment;
-use Zend\Mvc\Router\Http\TreeRouteStack;
-use Zend\Paginator\Adapter\ArrayAdapter;
-use Zend\Paginator\Paginator;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Hydrator;
-use Zend\View\HelperPluginManager;
-use Zend\View\Model\JsonModel;
-use Zend\View\Model\ViewModel;
+use Laminas\Hydrator\HydratorPluginManager;
+use Laminas\Mvc\Router\Http\Segment;
+use Laminas\Mvc\Router\Http\TreeRouteStack;
+use Laminas\Paginator\Adapter\ArrayAdapter;
+use Laminas\Paginator\Paginator;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Hydrator;
+use Laminas\View\HelperPluginManager;
+use Laminas\View\Model\JsonModel;
+use Laminas\View\Model\ViewModel;
 
 /**
  * @subpackage UnitTest

@@ -19,22 +19,22 @@ use PhlyRestfully\View\RestfulJsonModel;
 use PHPUnit\Framework\TestCase as TestCase;
 use ReflectionObject;
 use stdClass;
-use Zend\EventManager\EventManager;
-use Zend\EventManager\SharedEventManager;
-use Zend\Http;
-use Zend\Hydrator\HydratorPluginManager;
-use Zend\Mvc\Controller\PluginManager;
-use Zend\Mvc\MvcEvent;
-use Zend\Mvc\Router\Http\Segment;
-use Zend\Mvc\Router\RouteMatch;
-use Zend\Mvc\Router\SimpleRouteStack;
-use Zend\Paginator\Adapter\ArrayAdapter as ArrayPaginator;
-use Zend\Paginator\Paginator;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\Parameters;
-use Zend\View\Helper\ServerUrl as ServerUrlHelper;
-use Zend\View\Helper\Url as UrlHelper;
-use Zend\View\Model\ModelInterface;
+use Laminas\EventManager\EventManager;
+use Laminas\EventManager\SharedEventManager;
+use Laminas\Http;
+use Laminas\Hydrator\HydratorPluginManager;
+use Laminas\Mvc\Controller\PluginManager;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Mvc\Router\Http\Segment;
+use Laminas\Mvc\Router\RouteMatch;
+use Laminas\Mvc\Router\SimpleRouteStack;
+use Laminas\Paginator\Adapter\ArrayAdapter as ArrayPaginator;
+use Laminas\Paginator\Paginator;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Stdlib\Parameters;
+use Laminas\View\Helper\ServerUrl as ServerUrlHelper;
+use Laminas\View\Helper\Url as UrlHelper;
+use Laminas\View\Model\ModelInterface;
 
 /**
  * @subpackage UnitTest

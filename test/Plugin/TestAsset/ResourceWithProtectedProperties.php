@@ -8,7 +8,7 @@
 
 namespace PhlyRestfullyTest\Plugin\TestAsset;
 
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class ResourceWithProtectedProperties implements ArraySerializableInterface
 {

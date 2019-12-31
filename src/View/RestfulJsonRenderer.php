@@ -10,9 +10,9 @@ namespace PhlyRestfully\View;
 
 use PhlyRestfully\ApiProblem;
 use PhlyRestfully\Plugin\HalLinks;
-use Zend\Hydrator\HydratorPluginManager;
-use Zend\View\HelperPluginManager;
-use Zend\View\Renderer\JsonRenderer;
+use Laminas\Hydrator\HydratorPluginManager;
+use Laminas\View\HelperPluginManager;
+use Laminas\View\Renderer\JsonRenderer;
 
 /**
  * Handles rendering of the following:
@@ -29,7 +29,7 @@ class RestfulJsonRenderer extends JsonRenderer
     protected $apiProblem;
 
     /**
-     * @var \Zend\ServiceManager\ServiceManager|null
+     * @var \Laminas\ServiceManager\ServiceManager|null
      */
     protected $serviceManager = null;
 
@@ -89,7 +89,7 @@ class RestfulJsonRenderer extends JsonRenderer
     /**
      * @return $this
      */
-    public function setServiceManager(\Zend\ServiceManager\ServiceManager $serviceManager)
+    public function setServiceManager(\Laminas\ServiceManager\ServiceManager $serviceManager)
     {
         $this->serviceManager = $serviceManager;
         return $this;
@@ -196,10 +196,10 @@ class RestfulJsonRenderer extends JsonRenderer
 
         $helper = new HalLinks($hydrators);
         $helper->setView($this);
-        /** @var \Zend\View\Helper\ServerUrl $serverUrlHelper */
+        /** @var \Laminas\View\Helper\ServerUrl $serverUrlHelper */
         $serverUrlHelper = $helpers->get('ServerUrl');
         $helper->setServerUrlHelper($serverUrlHelper);
-        /** @var \Zend\View\Helper\Url $urlHelper */
+        /** @var \Laminas\View\Helper\Url $urlHelper */
         $urlHelper = $helpers->get('Url');
         $helper->setUrlHelper($urlHelper);
         $helpers->setService('HalLinks', $helper);

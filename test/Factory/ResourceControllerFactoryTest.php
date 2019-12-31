@@ -11,13 +11,13 @@ namespace PhlyRestfullyTest\Factory;
 use PhlyRestfully\ResourceController;
 use PhlyRestfully\Factory\ResourceControllerFactory;
 use PHPUnit\Framework\TestCase as TestCase;
-use Zend\EventManager\EventManager;
-use Zend\EventManager\SharedEventManager;
-use Zend\Mvc\Controller\ControllerManager;
-use Zend\Mvc\Service;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\ServiceManager\ServiceManager;
-use Zend\ServiceManager\Config;
+use Laminas\EventManager\EventManager;
+use Laminas\EventManager\SharedEventManager;
+use Laminas\Mvc\Controller\ControllerManager;
+use Laminas\Mvc\Service;
+use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\ServiceManager\Config;
 
 class ResourceControllerFactoryTest extends TestCase
 {

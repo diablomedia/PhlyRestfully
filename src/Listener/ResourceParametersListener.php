@@ -9,10 +9,10 @@
 namespace PhlyRestfully\Listener;
 
 use PhlyRestfully\ResourceController;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\EventManager\SharedEventManagerInterface;
-use Zend\Mvc\MvcEvent;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\EventManager\ListenerAggregateInterface;
+use Laminas\EventManager\SharedEventManagerInterface;
+use Laminas\Mvc\MvcEvent;
 
 class ResourceParametersListener implements ListenerAggregateInterface
 {
@@ -103,7 +103,7 @@ class ResourceParametersListener implements ListenerAggregateInterface
             return;
         }
 
-        /** @var \Zend\Http\Request $request */
+        /** @var \Laminas\Http\Request $request */
         $request  = $e->getRequest();
         $query    = $request->getQuery();
         $matches  = $e->getRouteMatch();

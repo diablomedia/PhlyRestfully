@@ -18,15 +18,15 @@ use PhlyRestfully\View\RestfulJsonModel;
 use PhlyRestfully\View\RestfulJsonRenderer;
 use PHPUnit\Framework\TestCase as TestCase;
 use ReflectionObject;
-use Zend\Http\Request;
-use Zend\Hydrator\HydratorPluginManager;
-use Zend\Mvc\Controller\PluginManager as ControllerPluginManager;
-use Zend\Mvc\Router\Http\TreeRouteStack;
-use Zend\Mvc\Router\RouteMatch;
-use Zend\ServiceManager\ServiceManager;
-use Zend\View\HelperPluginManager;
-use Zend\View\Helper\ServerUrl as ServerUrlHelper;
-use Zend\View\Helper\Url as UrlHelper;
+use Laminas\Http\Request;
+use Laminas\Hydrator\HydratorPluginManager;
+use Laminas\Mvc\Controller\PluginManager as ControllerPluginManager;
+use Laminas\Mvc\Router\Http\TreeRouteStack;
+use Laminas\Mvc\Router\RouteMatch;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\View\HelperPluginManager;
+use Laminas\View\Helper\ServerUrl as ServerUrlHelper;
+use Laminas\View\Helper\Url as UrlHelper;
 
 /**
  * @subpackage UnitTest

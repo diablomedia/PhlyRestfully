@@ -16,9 +16,9 @@ use PhlyRestfully\View\RestfulJsonModel;
 use PhlyRestfully\View\RestfulJsonRenderer;
 use PhlyRestfully\View\RestfulJsonStrategy;
 use PHPUnit\Framework\TestCase as TestCase;
-use Zend\Http\Response;
-use Zend\View\Renderer\JsonRenderer;
-use Zend\View\ViewEvent;
+use Laminas\Http\Response;
+use Laminas\View\Renderer\JsonRenderer;
+use Laminas\View\ViewEvent;
 
 /**
  * @subpackage UnitTest

@@ -17,13 +17,13 @@ use PhlyRestfully\ResourceController;
 use PHPUnit\Framework\TestCase as TestCase;
 use Zend\Http\Request;
 use Zend\Hydrator;
+use Zend\Hydrator\HydratorPluginManager;
 use Zend\Mvc\Router\Http\TreeRouteStack;
 use Zend\Mvc\Router\RouteMatch;
-use Zend\Mvc\Router\SimpleRouteStack;
 use Zend\Mvc\Router\Http\Segment;
 use Zend\Mvc\MvcEvent;
+use Zend\ServiceManager\ServiceManager;
 use Zend\Uri\Http;
-use Zend\Uri\Uri;
 use Zend\View\Helper\Url as UrlHelper;
 use Zend\View\Helper\ServerUrl as ServerUrlHelper;
 
@@ -98,6 +98,10 @@ class HalLinksTest extends TestCase
             ->method('getEvent')
             ->will($this->returnValue($event));
 
+        $this->serviceManager = new ServiceManager();
+
+        $this->hydratorPluginManager = new HydratorPluginManager($this->serviceManager);
+
         $this->urlHelper = $urlHelper = new UrlHelper();
         $urlHelper->setRouter($router);
 
@@ -105,7 +109,7 @@ class HalLinksTest extends TestCase
         $serverUrlHelper->setScheme('http');
         $serverUrlHelper->setHost('localhost.localdomain');
 
-        $this->plugin = $plugin = new HalLinks();
+        $this->plugin = $plugin = new HalLinks($this->hydratorPluginManager);
         $plugin->setController($controller);
         $plugin->setUrlHelper($urlHelper);
         $plugin->setServerUrlHelper($serverUrlHelper);
@@ -229,7 +233,7 @@ class HalLinksTest extends TestCase
                 'route'           => 'hostname/embedded_custom',
                 'identifier_name' => 'custom_id',
             ],
-        ]);
+        ], $this->hydratorPluginManager);
 
         $this->plugin->setMetadataMap($metadata);
 
@@ -267,7 +271,7 @@ class HalLinksTest extends TestCase
                 'route'          => 'hostname/contacts',
                 'resource_route' => 'hostname/embedded',
             ],
-        ]);
+        ], $this->hydratorPluginManager);
 
         $this->plugin->setMetadataMap($metadata);
 
@@ -321,7 +325,7 @@ class HalLinksTest extends TestCase
                 'hydrator' => Hydrator\ObjectProperty::class,
                 'route'    => 'hostname/resource',
             ],
-        ]);
+        ], $this->hydratorPluginManager);
 
         $this->plugin->setMetadataMap($metadata);
 
@@ -475,7 +479,7 @@ class HalLinksTest extends TestCase
                 'hydrator' => 'ArraySerializable',
                 'route'    => 'hostname/resource',
             ],
-        ]);
+        ], $this->hydratorPluginManager);
 
         $collection = new HalCollection([$resource]);
         $collection->setCollectionName('resource');
@@ -523,7 +527,7 @@ class HalLinksTest extends TestCase
                     ],
                 ],
             ],
-        ]);
+        ], $this->hydratorPluginManager);
 
         $this->plugin->setMetadataMap($metadata);
         $resource = $this->plugin->createResourceFromMetadata(
@@ -569,7 +573,7 @@ class HalLinksTest extends TestCase
                     ],
                 ],
             ],
-        ]);
+        ], $this->hydratorPluginManager);
 
         $this->plugin->setMetadataMap($metadata);
 

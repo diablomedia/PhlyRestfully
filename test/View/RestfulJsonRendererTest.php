@@ -19,10 +19,12 @@ use PhlyRestfully\View\RestfulJsonRenderer;
 use PhlyRestfullyTest\TestAsset;
 use PHPUnit\Framework\TestCase as TestCase;
 use ReflectionObject;
+use Zend\Hydrator\HydratorPluginManager;
 use Zend\Mvc\Router\Http\Segment;
 use Zend\Mvc\Router\Http\TreeRouteStack;
 use Zend\Paginator\Adapter\ArrayAdapter;
 use Zend\Paginator\Paginator;
+use Zend\ServiceManager\ServiceManager;
 use Zend\Hydrator;
 use Zend\View\HelperPluginManager;
 use Zend\View\Model\JsonModel;
@@ -36,6 +38,7 @@ class RestfulJsonRendererTest extends TestCase
     public function setUp()
     {
         $this->renderer = new RestfulJsonRenderer();
+        $this->serviceManager = new ServiceManager();
     }
 
     public function assertIsHalResource($resource)
@@ -126,13 +129,15 @@ class RestfulJsonRendererTest extends TestCase
         $this->resourceRoute = new Segment('/resource[/[:id]]');
         $this->router->addRoute('resource', $this->resourceRoute);
 
-        $this->helpers = $helpers  = new HelperPluginManager();
+        $hydratorPluginManager = new HydratorPluginManager($this->serviceManager);
+
+        $this->helpers = $helpers  = new HelperPluginManager($this->serviceManager);
         $serverUrl = $helpers->get('ServerUrl');
         $url       = $helpers->get('url');
         $url->setRouter($router);
         $serverUrl->setScheme('http');
         $serverUrl->setHost('localhost.localdomain');
-        $halLinks  = new HalLinks();
+        $halLinks  = new HalLinks($hydratorPluginManager);
         $halLinks->setServerUrlHelper($serverUrl);
         $halLinks->setUrlHelper($url);
         $helpers->setService('HalLinks', $halLinks);

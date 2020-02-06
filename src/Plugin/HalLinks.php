@@ -99,7 +99,7 @@ class HalLinks extends AbstractHelper implements
      * @param DispatchableInterface $controller
      * @return void
      */
-    public function setController(DispatchableInterface $controller)
+    public function setController(DispatchableInterface $controller): void
     {
         $this->controller = $controller;
     }
@@ -133,7 +133,7 @@ class HalLinks extends AbstractHelper implements
      * @param  EventManagerInterface $events
      * @return void
      */
-    public function setEventManager(EventManagerInterface $events)
+    public function setEventManager(EventManagerInterface $events): void
     {
         $events->setIdentifiers([
             __CLASS__,
@@ -216,7 +216,7 @@ class HalLinks extends AbstractHelper implements
      * @param ServerUrl $helper
      * @return void
      */
-    public function setServerUrlHelper(ServerUrl $helper)
+    public function setServerUrlHelper(ServerUrl $helper): void
     {
         $this->serverUrlHelper = $helper;
     }
@@ -225,7 +225,7 @@ class HalLinks extends AbstractHelper implements
      * @param Url $helper
      * @return void
      */
-    public function setUrlHelper(Url $helper)
+    public function setUrlHelper(Url $helper): void
     {
         $this->urlHelper = $helper;
     }
@@ -666,7 +666,7 @@ class HalLinks extends AbstractHelper implements
      * @param  string $identifier
      * @return void
      */
-    public function injectSelfLink(LinkCollectionAwareInterface $resource, $route, $identifier = 'id')
+    public function injectSelfLink(LinkCollectionAwareInterface $resource, $route, $identifier = 'id'): void
     {
         $self = new Link('self');
         $self->setRoute($route);
@@ -778,7 +778,7 @@ class HalLinks extends AbstractHelper implements
      * @param  HalResource $resource
      * @return void
      */
-    protected function extractEmbeddedHalResource(array &$parent, $key, HalResource $resource)
+    protected function extractEmbeddedHalResource(array &$parent, $key, HalResource $resource): void
     {
         $rendered = $this->renderResource($resource);
         if (!isset($parent['_embedded'])) {
@@ -800,7 +800,7 @@ class HalLinks extends AbstractHelper implements
      * @param  HalCollection $collection
      * @return void
      */
-    protected function extractEmbeddedHalCollection(array &$parent, $key, HalCollection $collection)
+    protected function extractEmbeddedHalCollection(array &$parent, $key, HalCollection $collection): void
     {
         $rendered = $this->extractCollection($collection);
         if (!isset($parent['_embedded'])) {
@@ -987,7 +987,7 @@ class HalLinks extends AbstractHelper implements
      * @param  LinkCollection $links
      * @return void
      */
-    protected function marshalMetadataLinks(Metadata $metadata, LinkCollection $links)
+    protected function marshalMetadataLinks(Metadata $metadata, LinkCollection $links): void
     {
         foreach ($metadata->getLinks() as $linkData) {
             $link = Link::factory($linkData);

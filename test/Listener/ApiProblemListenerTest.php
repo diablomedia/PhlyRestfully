@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * @link      https://github.com/weierophinney/PhlyRestfully for the canonical source repository
  * @copyright Copyright (c) 2013 Matthew Weier O'Phinney
@@ -16,14 +16,14 @@ use Laminas\Mvc\MvcEvent;
 
 class ApiProblemListenerTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->event    = new MvcEvent();
         $this->event->setError('this is an error event');
         $this->listener = new ApiProblemListener();
     }
 
-    public function testOnRenderReturnsEarlyWhenConsoleRequestDetected()
+    public function testOnRenderReturnsEarlyWhenConsoleRequestDetected(): void
     {
         $this->event->setRequest(new ConsoleRequest());
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * @link      https://github.com/weierophinney/PhlyRestfully for the canonical source repository
  * @copyright Copyright (c) 2013 Matthew Weier O'Phinney
@@ -22,7 +22,7 @@ use Laminas\Stdlib\Parameters;
  */
 class ResourceParametersListenerTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->resource   = $resource   = new Resource();
         $this->controller = $controller = new ResourceController();
@@ -41,7 +41,7 @@ class ResourceParametersListenerTest extends TestCase
         $this->listener = new ResourceParametersListener();
     }
 
-    public function testIgnoresNonResourceControllers()
+    public function testIgnoresNonResourceControllers(): void
     {
         $controller = $this->getMockBuilder('Laminas\Mvc\Controller\AbstractRestfulController')->getMock();
         $this->event->setTarget($controller);
@@ -50,13 +50,13 @@ class ResourceParametersListenerTest extends TestCase
         $this->assertNull($this->resource->getQueryParams());
     }
 
-    public function testInjectsRouteMatchOnDispatchOfResourceController()
+    public function testInjectsRouteMatchOnDispatchOfResourceController(): void
     {
         $this->listener->onDispatch($this->event);
         $this->assertSame($this->matches, $this->resource->getRouteMatch());
     }
 
-    public function testInjectsQueryParamsOnDispatchOfResourceController()
+    public function testInjectsQueryParamsOnDispatchOfResourceController(): void
     {
         $this->listener->onDispatch($this->event);
         $this->assertSame($this->query, $this->resource->getQueryParams());

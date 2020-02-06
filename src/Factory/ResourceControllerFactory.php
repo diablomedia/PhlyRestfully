@@ -125,9 +125,8 @@ class ResourceControllerFactory implements AbstractFactoryInterface
 
         /** @var \Laminas\EventManager\EventManagerInterface $events */
         $events          = $services->get('EventManager');
-        $controllerClass = isset($config['controller_class'])
-            ? $config['controller_class']
-            : ResourceController::class;
+        $controllerClass = $config['controller_class']
+            ?? ResourceController::class;
         $controller      = new $controllerClass($identifier);
 
         if (!$controller instanceof ResourceController) {
@@ -153,7 +152,7 @@ class ResourceControllerFactory implements AbstractFactoryInterface
      *
      * @return void
      */
-    protected function setControllerOptions(array $config, ResourceController $controller)
+    protected function setControllerOptions(array $config, ResourceController $controller): void
     {
         foreach ($config as $option => $value) {
             switch ($option) {
@@ -187,7 +186,7 @@ class ResourceControllerFactory implements AbstractFactoryInterface
                          * @param \Laminas\Mvc\MvcEvent $e
                          * @return void
                          */
-                        function ($e) use ($whitelist) {
+                        function ($e) use ($whitelist): void {
                             /** @var \Laminas\Mvc\Controller\AbstractController $target */
                             $target = $e->getTarget();
                             /** @var \Laminas\Http\Request $request */

@@ -242,7 +242,7 @@ class Module
      * @param  \Laminas\Mvc\MvcEvent $e
      * @return void
      */
-    public function onBootstrap($e)
+    public function onBootstrap($e): void
     {
         /** @var \Laminas\Mvc\ApplicationInterface $app */
         $app      = $e->getTarget();
@@ -260,7 +260,7 @@ class Module
              * @param \Laminas\Mvc\MvcEvent $e
              * @return void
              */
-            function ($e) use ($services) {
+            function ($e) use ($services): void {
                 /** @var \Laminas\EventManager\EventManager $eventManager */
                 $eventManager = $e->getApplication()->getEventManager();
                 /** @var Listener\ApiProblemListener $apiProblemListener */
@@ -282,7 +282,7 @@ class Module
      * @param  \Laminas\Mvc\MvcEvent $e
      * @return void
      */
-    public function onRender($e)
+    public function onRender($e): void
     {
         $result = $e->getResult();
         if (!$result instanceof View\RestfulJsonModel) {

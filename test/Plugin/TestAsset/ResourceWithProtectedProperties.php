@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * @link      https://github.com/weierophinney/PhlyRestfully for the canonical source repository
  * @copyright Copyright (c) 2013 Matthew Weier O'Phinney
@@ -26,7 +26,7 @@ class ResourceWithProtectedProperties implements ArraySerializableInterface
      *
      * @param  array $array
      */
-    public function exchangeArray(array $array)
+    public function exchangeArray(array $array): void
     {
         foreach ($array as $key => $value) {
             switch ($key) {

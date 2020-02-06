@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * @link      https://github.com/weierophinney/PhlyRestfully for the canonical source repository
  * @copyright Copyright (c) 2013 Matthew Weier O'Phinney
@@ -33,14 +33,14 @@ use Laminas\View\Helper\Url as UrlHelper;
  */
 class ChildResourcesIntegrationTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->setupRouter();
         $this->setupHelpers();
         $this->setupRenderer();
     }
 
-    public function setupHelpers()
+    public function setupHelpers(): void
     {
         if (!$this->router) {
             $this->setupRouter();
@@ -71,7 +71,7 @@ class ChildResourcesIntegrationTest extends TestCase
         $plugins->setService('HalLinks', $linksHelper);
     }
 
-    public function setupRenderer()
+    public function setupRenderer(): void
     {
         if (!$this->helpers) {
             $this->setupHelpers();
@@ -81,7 +81,7 @@ class ChildResourcesIntegrationTest extends TestCase
         $renderer->setHelperPluginManager($this->helpers);
     }
 
-    public function setupRouter()
+    public function setupRouter(): void
     {
         $routes = [
             'parent' => [
@@ -166,7 +166,7 @@ class ChildResourcesIntegrationTest extends TestCase
         return $collection;
     }
 
-    public function testParentResourceRendersAsExpected()
+    public function testParentResourceRendersAsExpected(): void
     {
         $uri = 'http://localhost.localdomain/api/parent/anakin';
         $request = new Request();
@@ -191,7 +191,7 @@ class ChildResourcesIntegrationTest extends TestCase
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin', $test->_links->self->href);
     }
 
-    public function testChildResourceRendersAsExpected()
+    public function testChildResourceRendersAsExpected(): void
     {
         $uri = 'http://localhost.localdomain/api/parent/anakin/child/luke';
         $request = new Request();
@@ -217,7 +217,7 @@ class ChildResourcesIntegrationTest extends TestCase
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin/child/luke', $test->_links->self->href);
     }
 
-    public function testChildCollectionRendersAsExpected()
+    public function testChildCollectionRendersAsExpected(): void
     {
         $uri = 'http://localhost.localdomain/api/parent/anakin/child';
         $request = new Request();
@@ -257,7 +257,7 @@ class ChildResourcesIntegrationTest extends TestCase
         }
     }
 
-    public function setUpAlternateRouter()
+    public function setUpAlternateRouter(): void
     {
         $routes = [
             'parent' => [
@@ -287,7 +287,7 @@ class ChildResourcesIntegrationTest extends TestCase
         $this->helpers->get('Url')->setRouter($router);
     }
 
-    public function testChildResourceObjectIdentiferMapping()
+    public function testChildResourceObjectIdentiferMapping(): void
     {
         $this->setUpAlternateRouter();
 
@@ -315,7 +315,7 @@ class ChildResourcesIntegrationTest extends TestCase
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin/child/luke', $test->_links->self->href);
     }
 
-    public function testChildResourceIdentifierMappingInsideCollection()
+    public function testChildResourceIdentifierMappingInsideCollection(): void
     {
         $this->setUpAlternateRouter();
 
@@ -357,7 +357,7 @@ class ChildResourcesIntegrationTest extends TestCase
         }
     }
 
-    public function testChildResourceObjectIdentiferMappingViaControllerReturn()
+    public function testChildResourceObjectIdentiferMappingViaControllerReturn(): void
     {
         $this->setUpAlternateRouter();
 
@@ -400,7 +400,7 @@ class ChildResourcesIntegrationTest extends TestCase
         $this->assertEquals('luke', $params['child_id']);
     }
 
-    public function testChildResourceObjectIdentiferMappingInCollectionsViaControllerReturn()
+    public function testChildResourceObjectIdentiferMappingInCollectionsViaControllerReturn(): void
     {
         $this->setUpAlternateRouter();
 

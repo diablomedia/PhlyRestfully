@@ -53,7 +53,7 @@ class RestfulJsonRenderer extends JsonRenderer
      * @param  HelperPluginManager $helpers
      * @return void
      */
-    public function setHelperPluginManager(HelperPluginManager $helpers)
+    public function setHelperPluginManager(HelperPluginManager $helpers): void
     {
         if (!$helpers->has('HalLinks')) {
             $this->injectHalLinksHelper($helpers);
@@ -181,7 +181,7 @@ class RestfulJsonRenderer extends JsonRenderer
      * @param  HelperPluginManager $helpers
      * @return void
      */
-    protected function injectHalLinksHelper(HelperPluginManager $helpers)
+    protected function injectHalLinksHelper(HelperPluginManager $helpers): void
     {
         if ($this->serviceManager !== null) {
             if ($this->serviceManager->has('HydratorManager')) {

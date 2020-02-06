@@ -68,7 +68,7 @@ class RestfulJsonStrategy extends JsonStrategy
      * @param  ViewEvent $e
      * @return void
      */
-    public function injectResponse(ViewEvent $e)
+    public function injectResponse(ViewEvent $e): void
     {
         $renderer = $e->getRenderer();
         if ($renderer !== $this->renderer) {

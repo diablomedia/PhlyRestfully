@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * @link      https://github.com/weierophinney/PhlyRestfully for the canonical source repository
  * @copyright Copyright (c) 2013 Matthew Weier O'Phinney
@@ -40,13 +40,13 @@ use Laminas\View\Helper\Url as UrlHelper;
  */
 class CollectionIntegrationTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->setUpRenderer();
         $this->setUpController();
     }
 
-    public function setUpHelpers()
+    public function setUpHelpers(): void
     {
         $this->setupRouter();
 
@@ -75,7 +75,7 @@ class CollectionIntegrationTest extends TestCase
         $helpers->setService('HalLinks', $linksHelper);
     }
 
-    public function setUpRenderer()
+    public function setUpRenderer(): void
     {
         $this->setupHelpers();
         $this->renderer = $renderer = new RestfulJsonRenderer();
@@ -83,7 +83,7 @@ class CollectionIntegrationTest extends TestCase
         $renderer->setHelperPluginManager($this->helpers);
     }
 
-    public function setUpRouter()
+    public function setUpRouter(): void
     {
         $this->setUpRequest();
 
@@ -124,13 +124,13 @@ class CollectionIntegrationTest extends TestCase
         return $collection;
     }
 
-    public function setUpListeners()
+    public function setUpListeners(): void
     {
         $this->listeners = new TestAsset\CollectionIntegrationListener();
         $this->listeners->setCollection($this->setUpCollection());
     }
 
-    public function setUpController()
+    public function setUpController(): void
     {
         $this->setUpRouter();
         $this->setUpListeners();
@@ -151,7 +151,7 @@ class CollectionIntegrationTest extends TestCase
         $controller->setPluginManager($plugins);
     }
 
-    public function setUpRequest()
+    public function setUpRequest(): void
     {
         $uri = Uri\UriFactory::factory('http://localhost.localdomain/api/resource?query=foo&page=2');
 
@@ -166,7 +166,7 @@ class CollectionIntegrationTest extends TestCase
         $headers->addHeaderLine('Content-Type', 'application/json');
     }
 
-    public function setUpResponse()
+    public function setUpResponse(): void
     {
         $this->response = new Response();
     }
@@ -221,9 +221,9 @@ class CollectionIntegrationTest extends TestCase
         return $services;
     }
 
-    public function testCollectionLinksIncludeFullQueryString()
+    public function testCollectionLinksIncludeFullQueryString(): void
     {
-        $this->controller->getEventManager()->attach('getList.post', function ($e) {
+        $this->controller->getEventManager()->attach('getList.post', function ($e): void {
             $request    = $e->getTarget()->getRequest();
             $query = $request->getQuery('query', false);
             if (!$query) {
@@ -262,7 +262,7 @@ class CollectionIntegrationTest extends TestCase
         }
     }
 
-    public function testFactoryEnabledListenerCreatesQueryStringWhitelist()
+    public function testFactoryEnabledListenerCreatesQueryStringWhitelist(): void
     {
         $services = $this->serviceManager;
 

@@ -57,7 +57,7 @@ class ApiProblemListener implements ListenerAggregateInterface
      * @param int $priority
      * @return void
      */
-    public function attach(EventManagerInterface $events, $priority = 1)
+    public function attach(EventManagerInterface $events, $priority = 1): void
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_RENDER, __CLASS__ . '::onRender', 1000);
     }
@@ -66,7 +66,7 @@ class ApiProblemListener implements ListenerAggregateInterface
      * @param EventManagerInterface $events
      * @return void
      */
-    public function detach(EventManagerInterface $events)
+    public function detach(EventManagerInterface $events): void
     {
         foreach ($this->listeners as $index => $listener) {
             $events->detach($listener);
@@ -81,7 +81,7 @@ class ApiProblemListener implements ListenerAggregateInterface
      *
      * @return void
      */
-    public static function onRender(MvcEvent $e)
+    public static function onRender(MvcEvent $e): void
     {
         // only worried about error pages
         if (!$e->isError()) {

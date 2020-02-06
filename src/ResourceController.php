@@ -144,7 +144,7 @@ class ResourceController extends AbstractRestfulController
      * @param  array $criteria
      * @return void
      */
-    public function setAcceptCriteria(array $criteria)
+    public function setAcceptCriteria(array $criteria): void
     {
         $this->acceptCriteria = $criteria;
     }
@@ -155,7 +155,7 @@ class ResourceController extends AbstractRestfulController
      * @param  array $options
      * @return void
      */
-    public function setCollectionHttpOptions(array $options)
+    public function setCollectionHttpOptions(array $options): void
     {
         $this->collectionHttpOptions = $options;
     }
@@ -166,7 +166,7 @@ class ResourceController extends AbstractRestfulController
      * @param  string $name
      * @return void
      */
-    public function setCollectionName($name)
+    public function setCollectionName($name): void
     {
         $this->collectionName = (string) $name;
     }
@@ -177,7 +177,7 @@ class ResourceController extends AbstractRestfulController
      * @param  array $contentTypes
      * @return void
      */
-    public function setContentTypes(array $contentTypes)
+    public function setContentTypes(array $contentTypes): void
     {
         $this->contentTypes = $contentTypes;
     }
@@ -188,7 +188,7 @@ class ResourceController extends AbstractRestfulController
      * @param  int $count
      * @return void
      */
-    public function setPageSize($count)
+    public function setPageSize($count): void
     {
         $this->pageSize = (int) $count;
     }
@@ -199,7 +199,7 @@ class ResourceController extends AbstractRestfulController
      * @param string $param
      * @return void
      */
-    public function setPageSizeParam($param)
+    public function setPageSizeParam($param): void
     {
         $this->pageSizeParam = (string) $param;
     }
@@ -210,7 +210,7 @@ class ResourceController extends AbstractRestfulController
      * @param  ResourceInterface $resource
      * @return void
      */
-    public function setResource(ResourceInterface $resource)
+    public function setResource(ResourceInterface $resource): void
     {
         $this->resource = $resource;
     }
@@ -237,7 +237,7 @@ class ResourceController extends AbstractRestfulController
      * @param  array $options
      * @return void
      */
-    public function setResourceHttpOptions(array $options)
+    public function setResourceHttpOptions(array $options): void
     {
         $this->resourceHttpOptions = $options;
     }
@@ -248,7 +248,7 @@ class ResourceController extends AbstractRestfulController
      * @param  string $route
      * @return void
      */
-    public function setRoute($route)
+    public function setRoute($route): void
     {
         $this->route = $route;
     }
@@ -602,7 +602,7 @@ class ResourceController extends AbstractRestfulController
              * @param string $method
              * @return void
              */
-            function (&$method) {
+            function (&$method): void {
                 $method = strtoupper($method);
             }
         );
@@ -776,7 +776,7 @@ class ResourceController extends AbstractRestfulController
              * @param string $method
              * @return void
              */
-            function (&$method) {
+            function (&$method): void {
                 $method = strtoupper($method);
             }
         );
@@ -803,7 +803,7 @@ class ResourceController extends AbstractRestfulController
              * @param string $method
              * @return void
              */
-            function (&$method) {
+            function (&$method): void {
                 $method = strtoupper($method);
             }
         );

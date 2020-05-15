@@ -24,7 +24,7 @@
         "laminas/laminas-hydrator": "^2.4.2",
         "laminas/laminas-json": "^2.5.0|^3.0.0",
         "laminas/laminas-loader": "^2.5.0",
-        "laminas/laminas-mvc": "^2.7.13",
+        "laminas/laminas-mvc": "^2.7.13 || ^3.0.0",
         "laminas/laminas-paginator": "^2.5.0",
         "laminas/laminas-servicemanager": "^3.4",
         "laminas/laminas-stdlib": "^3.2.1",

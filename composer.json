@@ -39,7 +39,7 @@
         "laminas/laminas-navigation": "^2.5",
         "phpstan/phpstan": "0.12.18",
         "phpunit/phpunit": "^7.5.15",
-        "vimeo/psalm": "3.8.3"
+        "vimeo/psalm": "4.4.1"
     },
     "suggest": {
         "zfr/zfr-cors": "zfr/zfr-cors provides CORS support"

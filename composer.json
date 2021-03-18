@@ -20,7 +20,7 @@
     "require": {
         "container-interop/container-interop": "^1.2",
         "laminas/laminas-eventmanager": "^3.0",
-        "laminas/laminas-http": "^2.11",
+        "laminas/laminas-http": "^2.14",
         "laminas/laminas-hydrator": "^2.4.2",
         "laminas/laminas-json": "^2.5.0|^3.0.0",
         "laminas/laminas-loader": "^2.5.0",

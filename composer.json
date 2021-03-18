@@ -30,7 +30,7 @@
         "laminas/laminas-stdlib": "^3.2.1",
         "laminas/laminas-uri": "^2.5.0",
         "laminas/laminas-view": "^2.11.4",
-        "php": "^7.1 || ^8.0"
+        "php": "^7.3 || ^8.0"
     },
     "require-dev": {
         "laminas/laminas-console": "^2.5",
@@ -44,7 +44,7 @@
         "zendframework/zend-navigation": "^2.5",
         "zendframework/zend-servicemanager": "^3.0",
         "phpstan/phpstan": "0.12.81",
-        "maglnet/composer-require-checker": "^1.1.0 || ^2.0.0",
+        "maglnet/composer-require-checker": "^2.0 || ^3.0",
         "phpro/grumphp-shim": "^0.22.0 || ^1.1"
     },
     "suggest": {

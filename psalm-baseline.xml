@@ -49,6 +49,11 @@
       <code>new static($spec['rel'])</code>
     </UnsafeInstantiation>
   </file>
+  <file src="src/Listener/ApiProblemListener.php">
+    <PossiblyInvalidMethodCall occurrences="1">
+      <code>getTypeString</code>
+    </PossiblyInvalidMethodCall>
+  </file>
   <file src="src/Metadata.php">
     <DocblockTypeContradiction occurrences="1">
       <code>null === $this-&gt;resourceRoute</code>

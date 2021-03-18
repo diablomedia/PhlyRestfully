@@ -32,13 +32,6 @@
             </errorLevel>
         </InvalidArgument>
 
-        <UndefinedClass>
-            <errorLevel type="info">
-                <!-- type-o in Laminas\Http\Header\AcceptAbstract docblock for match method -->
-                <file name="src/Listener/ApiProblemListener.php" />
-            </errorLevel>
-        </UndefinedClass>
-
         <PropertyTypeCoercion>
             <errorLevel type="info">
                 <!-- This one doesn't make any sense to me:

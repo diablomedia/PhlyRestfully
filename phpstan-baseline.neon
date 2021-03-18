@@ -76,7 +76,7 @@ parameters:
 			path: src/Plugin/HalLinks.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\|Traversable given\\.$#"
+			message: "#^Parameter \\#1 \\$(var|value) of function count expects array\\|Countable, array\\|Traversable given\\.$#"
 			count: 1
 			path: src/Plugin/HalLinks.php
 

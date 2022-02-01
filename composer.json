@@ -18,6 +18,7 @@
         }
     ],
     "require": {
+        "php": "^7.4 || ~8.0.0 || ~8.1.0",
         "container-interop/container-interop": "^1.2",
         "laminas/laminas-eventmanager": "^3.0",
         "laminas/laminas-http": "^2.14",
@@ -26,17 +27,17 @@
         "laminas/laminas-loader": "^2.5.0",
         "laminas/laminas-mvc": "^3.0.0",
         "laminas/laminas-paginator": "^2.5.0",
+        "laminas/laminas-router": "^3.5",
         "laminas/laminas-servicemanager": "^3.4",
         "laminas/laminas-stdlib": "^3.2.1",
         "laminas/laminas-uri": "^2.5.0",
-        "laminas/laminas-view": "^2.11.4",
-        "php": "^7.4 || ~8.0.0 || ~8.1.0"
+        "laminas/laminas-view": "^2.11.4"
     },
     "require-dev": {
         "laminas/laminas-cli": "^1.4.0",
         "laminas/laminas-db": "^2.11",
         "laminas/laminas-navigation": "^2.5",
-        "friendsofphp/php-cs-fixer": "2.18.4",
+        "friendsofphp/php-cs-fixer": "3.5.0",
         "phpunit/phpunit": "^8.5.15 || ^9.0.0",
         "vimeo/psalm": "4.19.0",
         "phpstan/phpstan": "1.4.4",

@@ -40,7 +40,7 @@
         "friendsofphp/php-cs-fixer": "3.5.0",
         "phpunit/phpunit": "^9.5.10",
         "vimeo/psalm": "4.19.0",
-        "phpstan/phpstan": "1.4.4",
+        "phpstan/phpstan": "1.5.7",
         "maglnet/composer-require-checker": "^2.0 || ^3.0",
         "phpro/grumphp-shim": "^0.22.0 || ^1.1"
     },

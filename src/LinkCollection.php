@@ -11,6 +11,7 @@ namespace PhlyRestfully;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
+use SeekableIterator;
 
 /**
  * Object describing a collection of link relations
@@ -27,7 +28,7 @@ class LinkCollection implements Countable, IteratorAggregate
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->links);
     }
@@ -37,7 +38,7 @@ class LinkCollection implements Countable, IteratorAggregate
      *
      * @return ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): SeekableIterator
     {
         return new ArrayIterator($this->links);
     }

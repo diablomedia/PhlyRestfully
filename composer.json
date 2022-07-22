@@ -37,7 +37,7 @@
         "laminas/laminas-cli": "^1.4.0",
         "laminas/laminas-db": "^2.11",
         "laminas/laminas-navigation": "^2.5",
-        "friendsofphp/php-cs-fixer": "3.8.0",
+        "friendsofphp/php-cs-fixer": "3.9.5",
         "phpunit/phpunit": "^9.5.10",
         "vimeo/psalm": "4.24.0",
         "phpstan/phpstan": "1.6.8",

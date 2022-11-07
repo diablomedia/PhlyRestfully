@@ -39,7 +39,7 @@
         "laminas/laminas-navigation": "^2.5",
         "friendsofphp/php-cs-fixer": "3.8.0",
         "phpunit/phpunit": "^9.5.10",
-        "vimeo/psalm": "4.24.0",
+        "vimeo/psalm": "4.30.0",
         "phpstan/phpstan": "1.6.8",
         "maglnet/composer-require-checker": "^2.0 || ^3.0",
         "phpro/grumphp-shim": "^0.22.0 || ^1.1"

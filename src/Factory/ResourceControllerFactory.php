@@ -8,7 +8,7 @@
 
 namespace PhlyRestfully\Factory;
 
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 use PhlyRestfully\Resource;
 use PhlyRestfully\ResourceController;
 use Laminas\EventManager\ListenerAggregateInterface;

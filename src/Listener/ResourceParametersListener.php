@@ -66,20 +66,17 @@ class ResourceParametersListener implements ListenerAggregateInterface
     public function detachShared(SharedEventManagerInterface $events): void
     {
         // Vary detachment based on zend-eventmanager version.
-        $detach = method_exists($events, 'attachAggregate')
-            ? /**
-             * @param callable $listener
-             * @return bool
-             */
-            function ($listener) use ($events) {
-                return $events->detach(ResourceController::class, $listener);
-            }
-        : /**
+        $detach = /**
          * @param callable $listener
          * @return bool
          */
         function ($listener) use ($events) {
-            return $events->detach($listener, ResourceController::class);
+            try {
+                $events->detach($listener, ResourceController::class);
+                return true;
+            } catch (\Exception $e) {
+                return false;
+            }
         };
 
         foreach ($this->sharedListeners as $index => $listener) {

@@ -35,15 +35,11 @@ use stdClass;
  */
 class RestfulJsonRendererTest extends TestCase
 {
-    /**
-     * @var RestfulJsonRenderer
-     */
-    private $renderer;
-
-    /**
-     * @var ServiceManager
-     */
-    private $serviceManager;
+    private RestfulJsonRenderer $renderer;
+    private ServiceManager $serviceManager;
+    private HelperPluginManager $helpers;
+    private TreeRouteStack $router;
+    private Segment $resourceRoute;
 
     public function setUp(): void
     {
@@ -54,7 +50,7 @@ class RestfulJsonRendererTest extends TestCase
     public function assertIsHalResource($resource): void
     {
         $this->assertInstanceOf('stdClass', $resource, 'Invalid HAL resource; not an object');
-        $this->assertObjectHasAttribute('_links', $resource, 'Invalid HAL resource; does not contain links');
+        $this->assertObjectHasProperty('_links', $resource, 'Invalid HAL resource; does not contain links');
         $links = $resource->_links;
         $this->assertInstanceOf('stdClass', $links, 'Invalid HAL resource; links are not an object');
     }
@@ -63,7 +59,7 @@ class RestfulJsonRendererTest extends TestCase
     {
         $this->assertIsHalResource($resource);
         $links = $resource->_links;
-        $this->assertObjectHasAttribute(
+        $this->assertObjectHasProperty(
             $relation,
             $links,
             sprintf('HAL links do not contain relation "%s"', $relation)
@@ -76,7 +72,7 @@ class RestfulJsonRendererTest extends TestCase
     {
         $this->assertHalResourceHasRelationalLink($relation, $resource);
         $link = $resource->_links->{$relation};
-        $this->assertObjectHasAttribute(
+        $this->assertObjectHasProperty(
             'href',
             $link,
             sprintf('%s relational link does not have an href attribute; received %s', $relation, var_export($link, true))
@@ -89,7 +85,7 @@ class RestfulJsonRendererTest extends TestCase
     {
         $this->assertHalResourceHasRelationalLink($relation, $resource);
         $link = $resource->_links->{$relation};
-        $this->assertObjectHasAttribute(
+        $this->assertObjectHasProperty(
             'href',
             $link,
             sprintf('%s relational link does not have an href attribute; received %s', $relation, var_export($link, true))
@@ -173,7 +169,7 @@ class RestfulJsonRendererTest extends TestCase
         $test  = json_decode($test);
 
         $this->assertRelationalLinkEquals('http://localhost.localdomain/resource/identifier', 'self', $test);
-        $this->assertObjectHasAttribute('foo', $test);
+        $this->assertObjectHasProperty('foo', $test);
         $this->assertEquals('bar', $test->foo);
     }
 
@@ -197,7 +193,7 @@ class RestfulJsonRendererTest extends TestCase
         $test  = json_decode($test);
 
         $this->assertRelationalLinkEquals('http://localhost.localdomain/resource/identifier', 'self', $test);
-        $this->assertObjectHasAttribute('foo', $test);
+        $this->assertObjectHasProperty('foo', $test);
         $this->assertEquals('bar', $test->foo);
     }
 
@@ -221,7 +217,7 @@ class RestfulJsonRendererTest extends TestCase
         $test  = json_decode($test);
 
         $this->assertRelationalLinkEquals('http://localhost.localdomain/resource/identifier', 'self', $test);
-        $this->assertObjectHasAttribute('foo', $test);
+        $this->assertObjectHasProperty('foo', $test);
         $this->assertEquals('bar', $test->foo);
     }
 
@@ -244,7 +240,7 @@ class RestfulJsonRendererTest extends TestCase
         $test  = json_decode($test);
 
         $this->assertRelationalLinkEquals('http://localhost.localdomain/resource/identifier', 'self', $test);
-        $this->assertObjectHasAttribute('foo', $test);
+        $this->assertObjectHasProperty('foo', $test);
         $this->assertEquals('bar', $test->foo);
     }
 
@@ -274,9 +270,9 @@ class RestfulJsonRendererTest extends TestCase
 
         $this->assertRelationalLinkEquals('http://localhost.localdomain/resource', 'self', $test);
 
-        $this->assertObjectHasAttribute('_embedded', $test);
+        $this->assertObjectHasProperty('_embedded', $test);
         $this->assertInstanceof('stdClass', $test->_embedded);
-        $this->assertObjectHasAttribute('items', $test->_embedded);
+        $this->assertObjectHasProperty('items', $test->_embedded);
         $this->assertIsArray($test->_embedded->items);
         $this->assertCount(100, $test->_embedded->items);
 
@@ -284,9 +280,9 @@ class RestfulJsonRendererTest extends TestCase
             $id = $key + 1;
 
             $this->assertRelationalLinkEquals('http://localhost.localdomain/resource/' . $id, 'self', $item);
-            $this->assertObjectHasAttribute('id', $item, var_export($item, true));
+            $this->assertObjectHasProperty('id', $item, var_export($item, true));
             $this->assertEquals($id, $item->id);
-            $this->assertObjectHasAttribute('foo', $item);
+            $this->assertObjectHasProperty('foo', $item);
             $this->assertEquals('bar', $item->foo);
         }
     }
@@ -326,9 +322,9 @@ class RestfulJsonRendererTest extends TestCase
         $this->assertRelationalLinkEquals('http://localhost.localdomain/resource?page=2', 'prev', $test);
         $this->assertRelationalLinkEquals('http://localhost.localdomain/resource?page=4', 'next', $test);
 
-        $this->assertObjectHasAttribute('_embedded', $test);
+        $this->assertObjectHasProperty('_embedded', $test);
         $this->assertInstanceof('stdClass', $test->_embedded);
-        $this->assertObjectHasAttribute('items', $test->_embedded);
+        $this->assertObjectHasProperty('items', $test->_embedded);
         $this->assertIsArray($test->_embedded->items);
         $this->assertCount(5, $test->_embedded->items);
 
@@ -336,9 +332,9 @@ class RestfulJsonRendererTest extends TestCase
             $id = $key + 11;
 
             $this->assertRelationalLinkEquals('http://localhost.localdomain/resource/' . $id, 'self', $item);
-            $this->assertObjectHasAttribute('id', $item, var_export($item, true));
+            $this->assertObjectHasProperty('id', $item, var_export($item, true));
             $this->assertEquals($id, $item->id);
-            $this->assertObjectHasAttribute('foo', $item);
+            $this->assertObjectHasProperty('foo', $item);
             $this->assertEquals('bar', $item->foo);
         }
     }
@@ -381,9 +377,9 @@ class RestfulJsonRendererTest extends TestCase
         $test       = $this->renderer->render($model);
         $test       = json_decode($test);
 
-        $this->assertObjectHasAttribute('httpStatus', $test, var_export($test, true));
+        $this->assertObjectHasProperty('httpStatus', $test, var_export($test, true));
         $this->assertEquals(409, $test->httpStatus);
-        $this->assertObjectHasAttribute('detail', $test);
+        $this->assertObjectHasProperty('detail', $test);
         $this->assertEquals('Invalid page provided', $test->detail);
 
         $this->assertTrue($this->renderer->isApiProblem());
@@ -430,9 +426,9 @@ class RestfulJsonRendererTest extends TestCase
         $test       = json_decode($test);
 
         $this->assertInstanceof('stdClass', $test, var_export($test, true));
-        $this->assertObjectHasAttribute('count', $test, var_export($test, true));
+        $this->assertObjectHasProperty('count', $test, var_export($test, true));
         $this->assertEquals(100, $test->count);
-        $this->assertObjectHasAttribute('type', $test);
+        $this->assertObjectHasProperty('type', $test);
         $this->assertEquals('foo', $test->type);
     }
 
@@ -471,9 +467,9 @@ class RestfulJsonRendererTest extends TestCase
         $test       = json_decode($test);
 
         $this->assertInstanceof('stdClass', $test, var_export($test, true));
-        $this->assertObjectHasAttribute('count', $test, var_export($test, true));
+        $this->assertObjectHasProperty('count', $test, var_export($test, true));
         $this->assertEquals(100, $test->count);
-        $this->assertObjectHasAttribute('type', $test);
+        $this->assertObjectHasProperty('type', $test);
         $this->assertEquals('foo', $test->type);
     }
 
@@ -504,10 +500,10 @@ class RestfulJsonRendererTest extends TestCase
         $test  = $this->renderer->render($model);
         $test  = json_decode($test);
 
-        $this->assertObjectNotHasAttribute('user', $test);
-        $this->assertObjectHasAttribute('_embedded', $test);
+        $this->assertObjectNotHasProperty('user', $test);
+        $this->assertObjectHasProperty('_embedded', $test);
         $embedded = $test->_embedded;
-        $this->assertObjectHasAttribute('user', $embedded);
+        $this->assertObjectHasProperty('user', $embedded);
         $user = $embedded->user;
         $this->assertRelationalLinkContains('/user/matthew', 'self', $user);
         $user = (array) $user;
@@ -554,9 +550,9 @@ class RestfulJsonRendererTest extends TestCase
         $this->assertInstanceof('stdClass', $test, var_export($test, true));
         $collection = $test->_embedded->items;
         foreach ($collection as $item) {
-            $this->assertObjectHasAttribute('_embedded', $item);
+            $this->assertObjectHasProperty('_embedded', $item);
             $embedded = $item->_embedded;
-            $this->assertObjectHasAttribute('user', $embedded);
+            $this->assertObjectHasProperty('user', $embedded);
             $user = $embedded->user;
             $this->assertRelationalLinkContains('/user/matthew', 'self', $user);
             $user = (array) $user;
@@ -608,9 +604,9 @@ class RestfulJsonRendererTest extends TestCase
         $this->assertInstanceof('stdClass', $test, var_export($test, true));
         $collection = $test->_embedded->items;
         foreach ($collection as $item) {
-            $this->assertObjectHasAttribute('_embedded', $item, var_export($item, true));
+            $this->assertObjectHasProperty('_embedded', $item, var_export($item, true));
             $embedded = $item->_embedded;
-            $this->assertObjectHasAttribute('user', $embedded);
+            $this->assertObjectHasProperty('user', $embedded);
             $user = $embedded->user;
             $this->assertRelationalLinkContains('/user/matthew', 'self', $user);
             $user = (array) $user;
@@ -663,9 +659,9 @@ class RestfulJsonRendererTest extends TestCase
         $this->assertInstanceof(stdClass::class, $test, var_export($test, true));
         $this->assertRelationalLinkEquals('http://localhost.localdomain/resource', 'self', $test);
 
-        $this->assertObjectHasAttribute('_embedded', $test);
+        $this->assertObjectHasProperty('_embedded', $test);
         $this->assertInstanceof(stdClass::class, $test->_embedded);
-        $this->assertObjectHasAttribute('items', $test->_embedded);
+        $this->assertObjectHasProperty('items', $test->_embedded);
         $this->assertIsArray($test->_embedded->items);
         $this->assertCount(100, $test->_embedded->items);
 
@@ -673,9 +669,9 @@ class RestfulJsonRendererTest extends TestCase
             $id = $key + 1;
 
             $this->assertRelationalLinkEquals('http://localhost.localdomain/resource/' . $id, 'self', $item);
-            $this->assertObjectHasAttribute('name', $item, var_export($item, true));
+            $this->assertObjectHasProperty('name', $item, var_export($item, true));
             $this->assertEquals($id, $item->name);
-            $this->assertObjectHasAttribute('foo', $item);
+            $this->assertObjectHasProperty('foo', $item);
             $this->assertEquals('bar', $item->foo);
         }
     }

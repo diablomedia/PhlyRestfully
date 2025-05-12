@@ -15,6 +15,10 @@ use Laminas\Stdlib\Parameters;
 
 class ResourceEventTest extends TestCase
 {
+    private RouteMatch $matches;
+    private Parameters $query;
+    private ResourceEvent $event;
+
     public function setUp(): void
     {
         $this->matches = new RouteMatch([

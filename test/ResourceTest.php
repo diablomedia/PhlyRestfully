@@ -26,6 +26,9 @@ use Laminas\Stdlib\Parameters;
  */
 class ResourceTest extends TestCase
 {
+    private EventManager $events;
+    private Resource $resource;
+
     public function setUp(): void
     {
         $this->events   = new EventManager;
@@ -476,7 +479,7 @@ class ResourceTest extends TestCase
 
         call_user_func_array([$this->resource, $eventName], $args);
 
-        $this->assertObjectHasAttribute('event', $test);
+        $this->assertObjectHasProperty('event', $test);
         $e = $test->event;
 
         if ($idIsPresent) {
@@ -504,7 +507,7 @@ class ResourceTest extends TestCase
 
         call_user_func_array([$this->resource, $eventName], $args);
 
-        $this->assertObjectHasAttribute('event', $test);
+        $this->assertObjectHasProperty('event', $test);
         $e = $test->event;
 
         $this->assertInstanceOf(ResourceEvent::class, $e);

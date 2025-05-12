@@ -16,6 +16,9 @@ use Laminas\Mvc\MvcEvent;
 
 class ApiProblemListenerTest extends TestCase
 {
+    private MvcEvent $event;
+    private ApiProblemListener $listener;
+
     public function setUp(): void
     {
         $this->event    = new MvcEvent();

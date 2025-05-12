@@ -40,6 +40,17 @@ use Laminas\View\Helper\Url as UrlHelper;
  */
 class CollectionIntegrationTest extends TestCase
 {
+    private $serviceManager;
+    private HalLinks $linksHelper;
+    private HelperPluginManager $helpers;
+    private RestfulJsonRenderer $renderer;
+    private ResourceController $controller;
+    private RouteMatch $matches;
+    private TreeRouteStack $router;
+    private Request $request;
+    private TestAsset\CollectionIntegrationListener $listeners;
+    private Response $response;
+
     public function setUp(): void
     {
         $this->setUpRenderer();

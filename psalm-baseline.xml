@@ -1,201 +1,562 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.19.0@a2ad69ae4f5ab1f7d225a8dc4e2ec2d9415ed599">
+<files psalm-version="6.10.3@90b5b9f5e7c8e441b191d3c82c58214753d7c7c1">
   <file src="src/ApiProblem.php">
-    <RedundantCondition occurrences="1">
-      <code>null === $this-&gt;title</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>null !== $this-&gt;title</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[ApiProblem]]></code>
+    </ClassMustBeFinal>
+    <NoValue>
+      <code><![CDATA[return $this->title;]]></code>
+    </NoValue>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getException]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[mixed]]></code>
+    </PossiblyUnusedReturnValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[null !== $this->title]]></code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Exception/CreationException.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[CreationException]]></code>
+    </ClassMustBeFinal>
+    <UnusedClass>
+      <code><![CDATA[CreationException]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Exception/DomainException.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getAdditionalDetails()]]></code>
+      <code><![CDATA[public function getDescribedBy()]]></code>
+      <code><![CDATA[public function getTitle()]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[setAdditionalDetails]]></code>
+      <code><![CDATA[setDescribedBy]]></code>
+      <code><![CDATA[setTitle]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Exception/InvalidCollectionException.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[InvalidCollectionException]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="src/Exception/InvalidResourceException.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[InvalidResourceException]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="src/Exception/PatchException.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[PatchException]]></code>
+    </ClassMustBeFinal>
+    <UnusedClass>
+      <code><![CDATA[PatchException]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Exception/RuntimeException.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[RuntimeException]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="src/Exception/UpdateException.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[UpdateException]]></code>
+    </ClassMustBeFinal>
+    <UnusedClass>
+      <code><![CDATA[UpdateException]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Factory/ResourceControllerFactory.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[ResourceControllerFactory]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)]]></code>
+      <code><![CDATA[public function canCreate(ContainerInterface $container, $requestedName)]]></code>
+    </MissingOverrideAttribute>
+    <UnusedClass>
+      <code><![CDATA[ResourceControllerFactory]]></code>
+    </UnusedClass>
   </file>
   <file src="src/HalCollection.php">
-    <DocblockTypeContradiction occurrences="5">
-      <code>gettype($collection)</code>
-      <code>is_array($options)</code>
-      <code>is_array($options)</code>
-      <code>is_array($params)</code>
-      <code>is_array($params)</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[HalCollection]]></code>
+    </ClassMustBeFinal>
+    <DocblockTypeContradiction>
+      <code><![CDATA[!is_array($collection) && !$collection instanceof Traversable]]></code>
+      <code><![CDATA[is_array($options)]]></code>
+      <code><![CDATA[is_array($options)]]></code>
+      <code><![CDATA[is_array($params)]]></code>
+      <code><![CDATA[is_array($params)]]></code>
     </DocblockTypeContradiction>
-    <InvalidPropertyAssignmentValue occurrences="1">
-      <code>$collection</code>
-    </InvalidPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$resourceLinks</code>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getLinks()]]></code>
+      <code><![CDATA[public function setLinks(LinkCollection $links)]]></code>
+    </MissingOverrideAttribute>
+    <NoValue>
+      <code><![CDATA[$collection]]></code>
+      <code><![CDATA[$options]]></code>
+      <code><![CDATA[$options]]></code>
+      <code><![CDATA[$params]]></code>
+      <code><![CDATA[$params]]></code>
+    </NoValue>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getResourceLinks]]></code>
+      <code><![CDATA[setAttributes]]></code>
+      <code><![CDATA[setCollectionName]]></code>
+      <code><![CDATA[setCollectionRouteOptions]]></code>
+      <code><![CDATA[setCollectionRouteParams]]></code>
+      <code><![CDATA[setPage]]></code>
+      <code><![CDATA[setPageSize]]></code>
+      <code><![CDATA[setResourceLinks]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[mixed]]></code>
+    </PossiblyUnusedReturnValue>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$resourceLinks]]></code>
     </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>is_object($collection)</code>
-    </RedundantConditionGivenDocblockType>
+    <RedundantCondition>
+      <code><![CDATA[gettype($collection)]]></code>
+      <code><![CDATA[gettype($options)]]></code>
+      <code><![CDATA[gettype($options)]]></code>
+      <code><![CDATA[gettype($params)]]></code>
+      <code><![CDATA[gettype($params)]]></code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[is_object($collection)]]></code>
+      <code><![CDATA[is_object($options)]]></code>
+      <code><![CDATA[is_object($options)]]></code>
+      <code><![CDATA[is_object($params)]]></code>
+      <code><![CDATA[is_object($params)]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/HalResource.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>!is_object($resource) &amp;&amp; !is_array($resource)</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[HalResource]]></code>
+    </ClassMustBeFinal>
+    <DocblockTypeContradiction>
+      <code><![CDATA[!is_object($resource) && !is_array($resource)]]></code>
     </DocblockTypeContradiction>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$links</code>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getLinks()]]></code>
+      <code><![CDATA[public function setLinks(LinkCollection $links)]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[mixed]]></code>
+    </PossiblyUnusedReturnValue>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$links]]></code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Link.php">
-    <DocblockTypeContradiction occurrences="2">
-      <code>is_array($options)</code>
-      <code>is_array($params)</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[Link]]></code>
+    </ClassMustBeFinal>
+    <DocblockTypeContradiction>
+      <code><![CDATA[is_array($options)]]></code>
+      <code><![CDATA[is_array($params)]]></code>
     </DocblockTypeContradiction>
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>$route</code>
-      <code>$url</code>
+    <NoValue>
+      <code><![CDATA[$options]]></code>
+      <code><![CDATA[$params]]></code>
+    </NoValue>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$route]]></code>
+      <code><![CDATA[$url]]></code>
     </PropertyNotSetInConstructor>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static($spec['rel'])</code>
+    <RedundantCondition>
+      <code><![CDATA[gettype($options)]]></code>
+      <code><![CDATA[gettype($params)]]></code>
+    </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$options]]></code>
+      <code><![CDATA[$params]]></code>
+    </RiskyTruthyFalsyComparison>
+    <TypeDoesNotContainType>
+      <code><![CDATA[is_object($options)]]></code>
+      <code><![CDATA[is_object($params)]]></code>
+    </TypeDoesNotContainType>
+    <UnsafeInstantiation>
+      <code><![CDATA[new static($spec['rel'])]]></code>
     </UnsafeInstantiation>
   </file>
+  <file src="src/LinkCollection.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[LinkCollection]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): SeekableIterator]]></code>
+    </MissingOverrideAttribute>
+    <MissingTemplateParam>
+      <code><![CDATA[IteratorAggregate]]></code>
+    </MissingTemplateParam>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[count]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[remove]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/LinkCollectionAwareInterface.php">
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[self]]></code>
+    </PossiblyUnusedReturnValue>
+  </file>
   <file src="src/Listener/ApiProblemListener.php">
-    <PossiblyInvalidMethodCall occurrences="1">
-      <code>getTypeString</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[ApiProblemListener]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function attach(EventManagerInterface $events, $priority = 1): void]]></code>
+      <code><![CDATA[public function detach(EventManagerInterface $events): void]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyInvalidMethodCall>
+      <code><![CDATA[getTypeString]]></code>
     </PossiblyInvalidMethodCall>
   </file>
+  <file src="src/Listener/ResourceParametersListener.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[ResourceParametersListener]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function attach(EventManagerInterface $events, $priority = 1): void]]></code>
+      <code><![CDATA[public function detach(EventManagerInterface $events): void]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[detachShared]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Metadata.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>null === $this-&gt;resourceRoute</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[Metadata]]></code>
+    </ClassMustBeFinal>
+    <DocblockTypeContradiction>
+      <code><![CDATA[null === $this->resourceRoute]]></code>
     </DocblockTypeContradiction>
-    <PropertyNotSetInConstructor occurrences="5">
-      <code>$hydrator</code>
-      <code>$hydrators</code>
-      <code>$resourceRoute</code>
-      <code>$route</code>
-      <code>$url</code>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getClass]]></code>
+      <code><![CDATA[setHydrator]]></code>
+      <code><![CDATA[setIdentifierName]]></code>
+      <code><![CDATA[setIsCollection]]></code>
+      <code><![CDATA[setLinks]]></code>
+      <code><![CDATA[setRoute]]></code>
+      <code><![CDATA[setRouteOptions]]></code>
+      <code><![CDATA[setRouteParams]]></code>
+      <code><![CDATA[setUrl]]></code>
+    </PossiblyUnusedMethod>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$hydrator]]></code>
+      <code><![CDATA[$hydrators]]></code>
+      <code><![CDATA[$resourceRoute]]></code>
+      <code><![CDATA[$route]]></code>
+      <code><![CDATA[$url]]></code>
     </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="4">
-      <code>null !== $this-&gt;hydrator</code>
-      <code>null !== $this-&gt;hydrators</code>
-      <code>null !== $this-&gt;route</code>
-      <code>null !== $this-&gt;url</code>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[null !== $this->hydrator]]></code>
+      <code><![CDATA[null !== $this->hydrators]]></code>
+      <code><![CDATA[null !== $this->route]]></code>
+      <code><![CDATA[null !== $this->url]]></code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/MetadataMap.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>null === $this-&gt;hydrators</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[MetadataMap]]></code>
+    </ClassMustBeFinal>
+    <DocblockTypeContradiction>
+      <code><![CDATA[null === $this->hydrators]]></code>
     </DocblockTypeContradiction>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$hydrators</code>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$hydrators]]></code>
     </PropertyNotSetInConstructor>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($map)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Module.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[Module]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedClass>
+      <code><![CDATA[$urlHelper]]></code>
+    </DeprecatedClass>
+    <PossiblyInvalidMethodCall>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+    </PossiblyInvalidMethodCall>
+    <PossiblyUndefinedMethod>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[get]]></code>
+    </PossiblyUndefinedMethod>
+    <UnusedClass>
+      <code><![CDATA[Module]]></code>
+    </UnusedClass>
   </file>
   <file src="src/Plugin/HalLinks.php">
-    <ArgumentTypeCoercion occurrences="3">
-      <code>$collection</code>
-      <code>$collection</code>
-      <code>$object</code>
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$collection]]></code>
+      <code><![CDATA[$object]]></code>
     </ArgumentTypeCoercion>
-    <DocblockTypeContradiction occurrences="5">
-      <code>!$this-&gt;events</code>
-      <code>$this-&gt;events</code>
-      <code>false === $identifierName</code>
-      <code>gettype($hydrator)</code>
-      <code>is_object($hydrator)</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[HalLinks]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedClass>
+      <code><![CDATA[Url]]></code>
+      <code><![CDATA[Url]]></code>
+    </DeprecatedClass>
+    <DocblockTypeContradiction>
+      <code><![CDATA[!$this->events]]></code>
+      <code><![CDATA[$this->events]]></code>
+      <code><![CDATA[false === $identifierName]]></code>
+      <code><![CDATA[gettype($hydrator)]]></code>
+      <code><![CDATA[is_object($hydrator)]]></code>
     </DocblockTypeContradiction>
-    <InvalidArgument occurrences="1">
-      <code>$reUseMatchedParams</code>
+    <InvalidArgument>
+      <code><![CDATA[$reUseMatchedParams]]></code>
     </InvalidArgument>
-    <PossiblyInvalidArgument occurrences="4">
-      <code>$eventParams['route']</code>
-      <code>$eventParams['routeOptions']</code>
-      <code>$eventParams['routeParams']</code>
-      <code>$resource</code>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getController()]]></code>
+      <code><![CDATA[public function getEventManager()]]></code>
+      <code><![CDATA[public function setController(DispatchableInterface $controller): void]]></code>
+      <code><![CDATA[public function setEventManager(EventManagerInterface $eventManager): void]]></code>
+    </MissingOverrideAttribute>
+    <NoValue>
+      <code><![CDATA[$hydrator]]></code>
+    </NoValue>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$collection]]></code>
+      <code><![CDATA[$eventParams['route']]]></code>
+      <code><![CDATA[$eventParams['routeOptions']]]></code>
+      <code><![CDATA[$eventParams['routeParams']]]></code>
+      <code><![CDATA[$resource]]></code>
+      <code><![CDATA[$route]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidMethodCall occurrences="2">
-      <code>setCurrentPageNumber</code>
-      <code>setItemCountPerPage</code>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$eventParams['route']]]></code>
+    </PossiblyInvalidCast>
+    <PossiblyInvalidMethodCall>
+      <code><![CDATA[setCurrentPageNumber]]></code>
+      <code><![CDATA[setItemCountPerPage]]></code>
     </PossiblyInvalidMethodCall>
-    <PossiblyNullArgument occurrences="1">
-      <code>$id</code>
+    <PossiblyNullArgument>
+      <code><![CDATA[$id]]></code>
     </PossiblyNullArgument>
-    <PossiblyUndefinedMethod occurrences="2">
-      <code>setCurrentPageNumber</code>
-      <code>setItemCountPerPage</code>
-    </PossiblyUndefinedMethod>
-    <PropertyNotSetInConstructor occurrences="6">
-      <code>$controller</code>
-      <code>$defaultHydrator</code>
-      <code>$events</code>
-      <code>$metadataMap</code>
-      <code>$serverUrlHelper</code>
-      <code>$urlHelper</code>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[createCollection]]></code>
+      <code><![CDATA[createLink]]></code>
+      <code><![CDATA[createResource]]></code>
+      <code><![CDATA[getDefaultHydrator]]></code>
+      <code><![CDATA[getHydratorManager]]></code>
+    </PossiblyUnusedMethod>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$controller]]></code>
+      <code><![CDATA[$defaultHydrator]]></code>
+      <code><![CDATA[$events]]></code>
+      <code><![CDATA[$metadataMap]]></code>
+      <code><![CDATA[$serverUrlHelper]]></code>
+      <code><![CDATA[$urlHelper]]></code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(string) $hydrator</code>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(string) $hydrator]]></code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="4">
-      <code>$data[$identifierName]</code>
-      <code>false !== $identifierName</code>
-      <code>is_string($hydrator)</code>
-      <code>is_string($hydrator) ? $hydrator : gettype($hydrator)</code>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$data[$identifierName]]]></code>
+      <code><![CDATA[false !== $identifierName]]></code>
+      <code><![CDATA[is_string($hydrator)]]></code>
+      <code><![CDATA[is_string($hydrator) ? $hydrator : gettype($hydrator)]]></code>
     </RedundantConditionGivenDocblockType>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$id]]></code>
+      <code><![CDATA[!$id]]></code>
+      <code><![CDATA[$identifierName]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Resource.php">
-    <DocblockTypeContradiction occurrences="8">
-      <code>!$this-&gt;events</code>
-      <code>$this-&gt;events</code>
-      <code>is_array($data)</code>
-      <code>is_array($data)</code>
-      <code>is_object($data)</code>
-      <code>is_object($data)</code>
-      <code>is_object($data)</code>
-      <code>is_object($value)</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[Resource]]></code>
+    </ClassMustBeFinal>
+    <DocblockTypeContradiction>
+      <code><![CDATA[!$this->events]]></code>
+      <code><![CDATA[$data
+            && (!is_array($data) && !$data instanceof Traversable)]]></code>
+      <code><![CDATA[$this->events]]></code>
+      <code><![CDATA[is_array($data)]]></code>
+      <code><![CDATA[is_array($data)]]></code>
+      <code><![CDATA[is_object($data)]]></code>
+      <code><![CDATA[is_object($data)]]></code>
+      <code><![CDATA[is_object($data)]]></code>
+      <code><![CDATA[is_object($value)]]></code>
     </DocblockTypeContradiction>
-    <ImplementedReturnTypeMismatch occurrences="4">
-      <code>$this</code>
-      <code>ApiProblem|HalCollection|iterable&lt;array-key|mixed, mixed&gt;</code>
-      <code>bool|ApiProblem</code>
-      <code>bool|ApiProblem</code>
+    <ImplementedReturnTypeMismatch>
+      <code><![CDATA[$this]]></code>
+      <code><![CDATA[ApiProblem|HalCollection|iterable<array-key|mixed, mixed>]]></code>
+      <code><![CDATA[bool|ApiProblem]]></code>
+      <code><![CDATA[bool|ApiProblem]]></code>
     </ImplementedReturnTypeMismatch>
-    <MissingConstructor occurrences="1">
-      <code>$events</code>
+    <MissingConstructor>
+      <code><![CDATA[$events]]></code>
     </MissingConstructor>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>is_object($value)</code>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function create($data)]]></code>
+      <code><![CDATA[public function delete($id)]]></code>
+      <code><![CDATA[public function deleteList($data = null)]]></code>
+      <code><![CDATA[public function fetch($id)]]></code>
+      <code><![CDATA[public function fetchAll()]]></code>
+      <code><![CDATA[public function getEventManager()]]></code>
+      <code><![CDATA[public function getEventParam($name, $default = null)]]></code>
+      <code><![CDATA[public function getEventParams()]]></code>
+      <code><![CDATA[public function patch($id, $data)]]></code>
+      <code><![CDATA[public function patchList($data)]]></code>
+      <code><![CDATA[public function replaceList($data)]]></code>
+      <code><![CDATA[public function setEventManager(EventManagerInterface $eventManager)]]></code>
+      <code><![CDATA[public function setEventParam($name, $value)]]></code>
+      <code><![CDATA[public function setEventParams(array $params)]]></code>
+      <code><![CDATA[public function setQueryParams(Parameters $params)]]></code>
+      <code><![CDATA[public function setRouteMatch(RouteMatch $matches)]]></code>
+      <code><![CDATA[public function update($id, $data)]]></code>
+    </MissingOverrideAttribute>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[is_object($value)]]></code>
     </RedundantConditionGivenDocblockType>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$data]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/ResourceController.php">
-    <DocblockTypeContradiction occurrences="3">
-      <code>!$this-&gt;resource</code>
-      <code>$this-&gt;resource</code>
-      <code>$this-&gt;resource === null</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[ResourceController]]></code>
+    </ClassMustBeFinal>
+    <DocblockTypeContradiction>
+      <code><![CDATA[!$this->resource]]></code>
+      <code><![CDATA[$this->resource]]></code>
+      <code><![CDATA[$this->resource === null]]></code>
     </DocblockTypeContradiction>
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>Response|ApiProblem|HalResource</code>
-    </ImplementedReturnTypeMismatch>
-    <MoreSpecificImplementedParamType occurrences="8">
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$data</code>
-      <code>$id</code>
-      <code>$id</code>
-      <code>$id</code>
-      <code>$request</code>
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function getIdentifier($routeMatch, $request)]]></code>
+      <code><![CDATA[public function create($data)]]></code>
+      <code><![CDATA[public function delete($id)]]></code>
+      <code><![CDATA[public function deleteList($data = [])]]></code>
+      <code><![CDATA[public function get($id)]]></code>
+      <code><![CDATA[public function getList()]]></code>
+      <code><![CDATA[public function head($id = null)]]></code>
+      <code><![CDATA[public function onDispatch(MvcEvent $e)]]></code>
+      <code><![CDATA[public function options()]]></code>
+      <code><![CDATA[public function patch($id, $data)]]></code>
+      <code><![CDATA[public function patchList($data)]]></code>
+      <code><![CDATA[public function replaceList($data)]]></code>
+      <code><![CDATA[public function update($id, $data)]]></code>
+    </MissingOverrideAttribute>
+    <MoreSpecificImplementedParamType>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$id]]></code>
+      <code><![CDATA[$id]]></code>
+      <code><![CDATA[$id]]></code>
+      <code><![CDATA[$request]]></code>
     </MoreSpecificImplementedParamType>
-    <PropertyNotSetInConstructor occurrences="7">
-      <code>$pageSizeParam</code>
-      <code>$resource</code>
-      <code>ResourceController</code>
-      <code>ResourceController</code>
-      <code>ResourceController</code>
-      <code>ResourceController</code>
-      <code>ResourceController</code>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[getContentTypes]]></code>
+    </PossiblyUnusedMethod>
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[$pageSizeParam]]></code>
+      <code><![CDATA[$resource]]></code>
+      <code><![CDATA[ResourceController]]></code>
+      <code><![CDATA[ResourceController]]></code>
+      <code><![CDATA[ResourceController]]></code>
+      <code><![CDATA[ResourceController]]></code>
+      <code><![CDATA[ResourceController]]></code>
     </PropertyNotSetInConstructor>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$id]]></code>
+      <code><![CDATA[$resource]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/ResourceEvent.php">
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>ResourceEvent</code>
-      <code>ResourceEvent</code>
-    </PropertyNotSetInConstructor>
+    <ClassMustBeFinal>
+      <code><![CDATA[ResourceEvent]]></code>
+    </ClassMustBeFinal>
+    <MissingTemplateParam>
+      <code><![CDATA[ResourceEvent]]></code>
+    </MissingTemplateParam>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getQueryParam]]></code>
+      <code><![CDATA[getRouteParam]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/ResourceInterface.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getEventParam]]></code>
+      <code><![CDATA[setEventParam]]></code>
+      <code><![CDATA[setEventParams]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[self]]></code>
+      <code><![CDATA[self]]></code>
+    </PossiblyUnusedReturnValue>
+  </file>
+  <file src="src/View/RestfulJsonModel.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[RestfulJsonModel]]></code>
+    </ClassMustBeFinal>
+    <InvalidExtendClass>
+      <code><![CDATA[JsonModel]]></code>
+    </InvalidExtendClass>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[setPayload]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/View/RestfulJsonRenderer.php">
-    <MissingConstructor occurrences="1">
-      <code>$helpers</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[RestfulJsonRenderer]]></code>
+    </ClassMustBeFinal>
+    <DeprecatedClass>
+      <code><![CDATA[$urlHelper]]></code>
+    </DeprecatedClass>
+    <InvalidExtendClass>
+      <code><![CDATA[JsonRenderer]]></code>
+    </InvalidExtendClass>
+    <MethodSignatureMismatch>
+      <code><![CDATA[public function render($nameOrModel, $values = null)]]></code>
+    </MethodSignatureMismatch>
+    <MissingConstructor>
+      <code><![CDATA[$helpers]]></code>
     </MissingConstructor>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function render($nameOrModel, $values = null)]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getHelperPluginManager]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/View/RestfulJsonStrategy.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$renderer</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[RestfulJsonStrategy]]></code>
+    </ClassMustBeFinal>
+    <ConstructorSignatureMismatch>
+      <code><![CDATA[$renderer]]></code>
+    </ConstructorSignatureMismatch>
+    <InvalidExtendClass>
+      <code><![CDATA[JsonStrategy]]></code>
+    </InvalidExtendClass>
+    <MethodSignatureMismatch>
+      <code><![CDATA[public function __construct(RestfulJsonRenderer $renderer)]]></code>
+      <code><![CDATA[public function injectResponse(ViewEvent $e): void]]></code>
+      <code><![CDATA[public function selectRenderer(ViewEvent $e)]]></code>
+    </MethodSignatureMismatch>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function injectResponse(ViewEvent $e): void]]></code>
+      <code><![CDATA[public function selectRenderer(ViewEvent $e)]]></code>
+    </MissingOverrideAttribute>
+    <MoreSpecificImplementedParamType>
+      <code><![CDATA[$renderer]]></code>
+    </MoreSpecificImplementedParamType>
+    <NonInvariantDocblockPropertyType>
+      <code><![CDATA[$renderer]]></code>
     </NonInvariantDocblockPropertyType>
   </file>
 </files>

@@ -14,6 +14,8 @@ use PHPUnit\Framework\TestCase as TestCase;
 
 class LinkCollectionTest extends TestCase
 {
+    private LinkCollection $links;
+
     public function setUp(): void
     {
         $this->links = new LinkCollection();

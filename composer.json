@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ~8.0.0 || ~8.1.0",
+        "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
         "container-interop/container-interop": "^1.2",
         "laminas/laminas-eventmanager": "^3.0",
         "laminas/laminas-http": "^2.14",
@@ -31,17 +31,18 @@
         "laminas/laminas-servicemanager": "^3.4",
         "laminas/laminas-stdlib": "^3.2.1",
         "laminas/laminas-uri": "^2.5.0",
-        "laminas/laminas-view": "^2.11.4"
+        "laminas/laminas-view": "^2.11.4",
+        "psr/container": "^1.1"
     },
     "require-dev": {
         "laminas/laminas-cli": "^1.4.0",
         "laminas/laminas-db": "^2.11",
         "laminas/laminas-navigation": "^2.5",
-        "friendsofphp/php-cs-fixer": "3.8.0",
+        "friendsofphp/php-cs-fixer": "3.75.0",
         "phpunit/phpunit": "^9.5.10",
-        "vimeo/psalm": "4.24.0",
-        "phpstan/phpstan": "1.6.8",
-        "maglnet/composer-require-checker": "^2.0 || ^3.0",
+        "vimeo/psalm": "6.10.3",
+        "phpstan/phpstan": "1.10.6",
+        "maglnet/composer-require-checker": "^3.0 || ^4.0",
         "phpro/grumphp-shim": "^0.22.0 || ^1.1"
     },
     "suggest": {
@@ -63,5 +64,10 @@
         "phpstan": "phpstan analyze -c phpstan.neon --no-progress --ansi --memory-limit=768M",
         "style-check": "php-cs-fixer fix --dry-run -vv",
         "psalm": "psalm --show-info=false"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpro/grumphp-shim": true
+        }
     }
 }

@@ -43,7 +43,7 @@
         "vimeo/psalm": "5.26.1 || 6.10.3",
         "phpstan/phpstan": "1.12.25",
         "maglnet/composer-require-checker": "^3.0 || ^4.0",
-        "phpro/grumphp-shim": "^0.22.0 || ^1.1"
+        "phpro/grumphp-shim": "^0.22.0 || ^1.1 || ^2.0"
     },
     "suggest": {
         "zfr/zfr-cors": "zfr/zfr-cors provides CORS support"

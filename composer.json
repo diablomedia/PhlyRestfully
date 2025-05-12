@@ -31,7 +31,7 @@
         "laminas/laminas-servicemanager": "^3.4",
         "laminas/laminas-stdlib": "^3.2.1",
         "laminas/laminas-uri": "^2.5.0",
-        "laminas/laminas-view": "^2.11.4",
+        "laminas/laminas-view": "^2.39.0",
         "psr/container": "^1.1"
     },
     "require-dev": {
@@ -39,7 +39,7 @@
         "laminas/laminas-db": "^2.11",
         "laminas/laminas-navigation": "^2.5",
         "friendsofphp/php-cs-fixer": "3.75.0",
-        "phpunit/phpunit": "^9.5.10",
+        "phpunit/phpunit": "^9.6.23",
         "vimeo/psalm": "6.10.3",
         "phpstan/phpstan": "1.10.6",
         "maglnet/composer-require-checker": "^3.0 || ^4.0",

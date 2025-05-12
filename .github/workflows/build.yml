@@ -18,9 +18,9 @@ jobs:
         runs-on: ${{ matrix.operating-system }}
         steps:
             - name: Checkout
-              uses: actions/checkout@v3.3.0
+              uses: actions/checkout@v4.2.2
             - name: Setup PHP
-              uses: shivammathur/setup-php@2.24.0
+              uses: shivammathur/setup-php@2.33.0
               with:
                   php-version: ${{ matrix.php-versions }}
                   extensions: mbstring
@@ -32,7 +32,7 @@ jobs:
               id: composer-cache
               run: echo "::set-output name=dir::$(composer config cache-files-dir)"
             - name: Cache dependencies
-              uses: actions/cache@v3.3.0
+              uses: actions/cache@v4.2.3
               with:
                   path: ${{ steps.composer-cache.outputs.dir }}
                   key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}

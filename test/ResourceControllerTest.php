@@ -41,6 +41,11 @@ use Laminas\View\Model\ModelInterface;
  */
 class ResourceControllerTest extends TestCase
 {
+    private ResourceController $controller;
+    private MvcEvent $event;
+    private SimpleRouteStack $router;
+    private Resource $resource;
+
     public function setUp(): void
     {
         $this->controller = $controller = new ResourceController();

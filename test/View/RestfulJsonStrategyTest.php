@@ -25,6 +25,11 @@ use Laminas\View\ViewEvent;
  */
 class RestfulJsonStrategyTest extends TestCase
 {
+    private Response $response;
+    private ViewEvent $event;
+    private RestfulJsonRenderer $renderer;
+    private RestfulJsonStrategy $strategy;
+
     public function setUp(): void
     {
         $this->response = new Response;

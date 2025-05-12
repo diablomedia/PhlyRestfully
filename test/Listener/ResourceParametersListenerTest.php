@@ -22,6 +22,14 @@ use Laminas\Stdlib\Parameters;
  */
 class ResourceParametersListenerTest extends TestCase
 {
+    private Resource $resource;
+    private ResourceController $controller;
+    private RouteMatch $matches;
+    private Parameters $query;
+    private Request $request;
+    private MvcEvent $event;
+    private ResourceParametersListener $listener;
+
     public function setUp(): void
     {
         $this->resource   = $resource   = new Resource();

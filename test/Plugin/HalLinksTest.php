@@ -32,6 +32,19 @@ use Laminas\View\Helper\ServerUrl as ServerUrlHelper;
  */
 class HalLinksTest extends TestCase
 {
+    private TreeRouteStack $router;
+    private MvcEvent $event;
+    private ServiceManager $serviceManager;
+    private HydratorPluginManager $hydratorPluginManager;
+    private UrlHelper $urlHelper;
+    private HalLinks $plugin;
+    private ServerUrlHelper $serverUrlHelper;
+
+    /**
+     * @var ResourceController | \PHPUnit\Framework\MockObject\MockObject
+     */
+    private $controller;
+
     public function setUp(): void
     {
         $this->router = $router = new TreeRouteStack();

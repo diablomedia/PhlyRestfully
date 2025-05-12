@@ -21,6 +21,10 @@ use Laminas\ServiceManager\Config;
 
 class ResourceControllerFactoryTest extends TestCase
 {
+    private ServiceManager $services;
+    private ControllerManager $controllers;
+    private ResourceControllerFactory $factory;
+
     public function setUp(): void
     {
         $this->services    = $services    = new ServiceManager();

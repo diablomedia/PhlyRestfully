@@ -20,6 +20,8 @@ use stdClass;
  */
 class RestfulJsonModelTest extends TestCase
 {
+    private RestfulJsonModel $model;
+
     public function setUp(): void
     {
         $this->model = new RestfulJsonModel;

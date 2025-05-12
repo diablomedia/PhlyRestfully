@@ -33,6 +33,15 @@ use Laminas\View\Helper\Url as UrlHelper;
  */
 class ChildResourcesIntegrationTest extends TestCase
 {
+    private TreeRouteStack $router;
+    private ServiceManager $serviceManager;
+    private HelperPluginManager $helpers;
+    private ControllerPluginManager $plugins;
+    private RestfulJsonRenderer $renderer;
+    private object $parent;
+    private object $child;
+    private array $collection;
+
     public function setUp(): void
     {
         $this->setupRouter();
@@ -185,9 +194,9 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $json = $this->renderer->render($model);
         $test = json_decode($json);
-        $this->assertObjectHasAttribute('_links', $test);
-        $this->assertObjectHasAttribute('self', $test->_links);
-        $this->assertObjectHasAttribute('href', $test->_links->self);
+        $this->assertObjectHasProperty('_links', $test);
+        $this->assertObjectHasProperty('self', $test->_links);
+        $this->assertObjectHasProperty('href', $test->_links->self);
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin', $test->_links->self->href);
     }
 
@@ -211,9 +220,9 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $json = $this->renderer->render($model);
         $test = json_decode($json);
-        $this->assertObjectHasAttribute('_links', $test);
-        $this->assertObjectHasAttribute('self', $test->_links);
-        $this->assertObjectHasAttribute('href', $test->_links->self);
+        $this->assertObjectHasProperty('_links', $test);
+        $this->assertObjectHasProperty('self', $test->_links);
+        $this->assertObjectHasProperty('href', $test->_links->self);
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin/child/luke', $test->_links->self->href);
     }
 
@@ -237,19 +246,19 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $json = $this->renderer->render($model);
         $test = json_decode($json);
-        $this->assertObjectHasAttribute('_links', $test);
-        $this->assertObjectHasAttribute('self', $test->_links);
-        $this->assertObjectHasAttribute('href', $test->_links->self);
+        $this->assertObjectHasProperty('_links', $test);
+        $this->assertObjectHasProperty('self', $test->_links);
+        $this->assertObjectHasProperty('href', $test->_links->self);
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin/child', $test->_links->self->href);
 
-        $this->assertObjectHasAttribute('_embedded', $test);
-        $this->assertObjectHasAttribute('child', $test->_embedded);
+        $this->assertObjectHasProperty('_embedded', $test);
+        $this->assertObjectHasProperty('child', $test->_embedded);
         $this->assertIsArray($test->_embedded->child);
 
         foreach ($test->_embedded->child as $child) {
-            $this->assertObjectHasAttribute('_links', $child);
-            $this->assertObjectHasAttribute('self', $child->_links);
-            $this->assertObjectHasAttribute('href', $child->_links->self);
+            $this->assertObjectHasProperty('_links', $child);
+            $this->assertObjectHasProperty('self', $child->_links);
+            $this->assertObjectHasProperty('href', $child->_links->self);
             $this->assertRegex(
                 '#^http://localhost.localdomain/api/parent/anakin/child/[^/]+$#',
                 $child->_links->self->href
@@ -309,9 +318,9 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $json = $this->renderer->render($model);
         $test = json_decode($json);
-        $this->assertObjectHasAttribute('_links', $test);
-        $this->assertObjectHasAttribute('self', $test->_links);
-        $this->assertObjectHasAttribute('href', $test->_links->self);
+        $this->assertObjectHasProperty('_links', $test);
+        $this->assertObjectHasProperty('self', $test->_links);
+        $this->assertObjectHasProperty('href', $test->_links->self);
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin/child/luke', $test->_links->self->href);
     }
 
@@ -337,19 +346,19 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $json = $this->renderer->render($model);
         $test = json_decode($json);
-        $this->assertObjectHasAttribute('_links', $test);
-        $this->assertObjectHasAttribute('self', $test->_links);
-        $this->assertObjectHasAttribute('href', $test->_links->self);
+        $this->assertObjectHasProperty('_links', $test);
+        $this->assertObjectHasProperty('self', $test->_links);
+        $this->assertObjectHasProperty('href', $test->_links->self);
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin/child', $test->_links->self->href);
 
-        $this->assertObjectHasAttribute('_embedded', $test);
-        $this->assertObjectHasAttribute('child', $test->_embedded);
+        $this->assertObjectHasProperty('_embedded', $test);
+        $this->assertObjectHasProperty('child', $test->_embedded);
         $this->assertIsArray($test->_embedded->child);
 
         foreach ($test->_embedded->child as $child) {
-            $this->assertObjectHasAttribute('_links', $child);
-            $this->assertObjectHasAttribute('self', $child->_links);
-            $this->assertObjectHasAttribute('href', $child->_links->self);
+            $this->assertObjectHasProperty('_links', $child);
+            $this->assertObjectHasProperty('self', $child->_links);
+            $this->assertObjectHasProperty('href', $child->_links->self);
             $this->assertRegex(
                 '#^http://localhost.localdomain/api/parent/anakin/child/[^/]+$#',
                 $child->_links->self->href
@@ -448,19 +457,19 @@ class ChildResourcesIntegrationTest extends TestCase
 
         $json = $this->renderer->render($model);
         $test = json_decode($json);
-        $this->assertObjectHasAttribute('_links', $test);
-        $this->assertObjectHasAttribute('self', $test->_links);
-        $this->assertObjectHasAttribute('href', $test->_links->self);
+        $this->assertObjectHasProperty('_links', $test);
+        $this->assertObjectHasProperty('self', $test->_links);
+        $this->assertObjectHasProperty('href', $test->_links->self);
         $this->assertEquals('http://localhost.localdomain/api/parent/anakin/child', $test->_links->self->href);
 
-        $this->assertObjectHasAttribute('_embedded', $test);
-        $this->assertObjectHasAttribute('children', $test->_embedded);
+        $this->assertObjectHasProperty('_embedded', $test);
+        $this->assertObjectHasProperty('children', $test->_embedded);
         $this->assertIsArray($test->_embedded->children);
 
         foreach ($test->_embedded->children as $child) {
-            $this->assertObjectHasAttribute('_links', $child);
-            $this->assertObjectHasAttribute('self', $child->_links);
-            $this->assertObjectHasAttribute('href', $child->_links->self);
+            $this->assertObjectHasProperty('_links', $child);
+            $this->assertObjectHasProperty('self', $child->_links);
+            $this->assertObjectHasProperty('href', $child->_links->self);
             $this->assertMatchesRegularExpression(
                 '#^http://localhost.localdomain/api/parent/anakin/child/[^/]+$#',
                 $child->_links->self->href

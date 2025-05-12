@@ -23,6 +23,8 @@ use Laminas\Stdlib\ArrayUtils;
 
 class ModuleTest extends TestCase
 {
+    private Module $module;
+
     public function setUp(): void
     {
         $this->module = new Module;

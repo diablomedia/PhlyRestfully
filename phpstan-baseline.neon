@@ -1,13 +1,13 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 5
 			path: src/HalCollection.php
 
 		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 5
+			message: "#^Result of && is always false\\.$#"
+			count: 1
 			path: src/HalCollection.php
 
 		-
@@ -16,19 +16,14 @@ parameters:
 			path: src/HalResource.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Link.php
-
-		-
 			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
 			count: 2
 			path: src/Link.php
 
 		-
-			message: "#^Parameter \\#1 \\$listener of method Laminas\\\\EventManager\\\\SharedEventManagerInterface\\:\\:detach\\(\\) expects callable\\(\\)\\: mixed, 'PhlyRestfully\\\\\\\\ResourceController' given\\.$#"
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
-			path: src/Listener/ResourceParametersListener.php
+			path: src/Link.php
 
 		-
 			message: "#^Parameter \\#1 \\$matches of method PhlyRestfully\\\\ResourceInterface\\:\\:setRouteMatch\\(\\) expects Laminas\\\\Router\\\\RouteMatch, Laminas\\\\Router\\\\RouteMatch\\|null given\\.$#"
@@ -36,7 +31,7 @@ parameters:
 			path: src/Listener/ResourceParametersListener.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
+			message: "#^ArrayObject\\<\\*NEVER\\*, \\*NEVER\\*\\> does not accept int\\|string\\.$#"
 			count: 1
 			path: src/Plugin/HalLinks.php
 
@@ -46,12 +41,22 @@ parameters:
 			path: src/Plugin/HalLinks.php
 
 		-
+			message: "#^Cannot call method setCurrentPageNumber\\(\\) on array\\|Traversable\\.$#"
+			count: 1
+			path: src/Plugin/HalLinks.php
+
+		-
+			message: "#^Cannot call method setItemCountPerPage\\(\\) on array\\|Traversable\\.$#"
+			count: 1
+			path: src/Plugin/HalLinks.php
+
+		-
 			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
 			count: 1
 			path: src/Plugin/HalLinks.php
 
 		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			message: "#^Negated boolean expression is always false\\.$#"
 			count: 1
 			path: src/Plugin/HalLinks.php
 
@@ -66,17 +71,12 @@ parameters:
 			path: src/Plugin/HalLinks.php
 
 		-
-			message: "#^Cannot call method setItemCountPerPage\\(\\) on array\\|Traversable\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\|Traversable given\\.$#"
 			count: 1
 			path: src/Plugin/HalLinks.php
 
 		-
-			message: "#^Cannot call method setCurrentPageNumber\\(\\) on array\\|Traversable\\.$#"
-			count: 1
-			path: src/Plugin/HalLinks.php
-
-		-
-			message: "#^Parameter \\#1 \\$(var|value) of function count expects array\\|Countable, array\\|Traversable given\\.$#"
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: src/Plugin/HalLinks.php
 
@@ -96,7 +96,17 @@ parameters:
 			path: src/ResourceController.php
 
 		-
-			message: "#^Return type \\(Laminas\\\\Http\\\\Response\\|PhlyRestfully\\\\ApiProblem\\|PhlyRestfully\\\\HalResource\\) of method PhlyRestfully\\\\ResourceController\\:\\:patch\\(\\) should be compatible with return type \\(array\\) of method Laminas\\\\Mvc\\\\Controller\\\\AbstractRestfulController\\:\\:patch\\(\\)$#"
+			message: "#^Class PhlyRestfully\\\\View\\\\RestfulJsonModel extends @final class Laminas\\\\View\\\\Model\\\\JsonModel\\.$#"
 			count: 1
-			path: src/ResourceController.php
+			path: src/View/RestfulJsonModel.php
+
+		-
+			message: "#^Class PhlyRestfully\\\\View\\\\RestfulJsonRenderer extends @final class Laminas\\\\View\\\\Renderer\\\\JsonRenderer\\.$#"
+			count: 1
+			path: src/View/RestfulJsonRenderer.php
+
+		-
+			message: "#^Class PhlyRestfully\\\\View\\\\RestfulJsonStrategy extends @final class Laminas\\\\View\\\\Strategy\\\\JsonStrategy\\.$#"
+			count: 1
+			path: src/View/RestfulJsonStrategy.php
 
